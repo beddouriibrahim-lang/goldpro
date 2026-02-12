@@ -12,584 +12,480 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23F2D37B'/%3E%3Cstop offset='100%25' stop-color='%23D4AF37'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect rx='14' width='64' height='64' fill='url(%23g)'/%3E%3Ctext x='50%25' y='58%25' text-anchor='middle' font-size='38' font-family='system-ui' font-weight='900' fill='%23fff'%3EG%3C/text%3E%3C/svg%3E" />
 
   <style>
-    /* =========================================================
-      🌟 Golden Platform - Professional Edition + Search (RTL)
-      (نسخة أصلية مع تحسينات موبايل فقط تحت media queries)
-    ========================================================= */
+    :root{
+      --bg:#fff; --bg-2:#fafafa; --bg-3:#f5f5f5;
+      --ink:#0a0a0e; --ink-2:#1a1a1e;
+      --muted:#64748b; --muted-2:#94a3b8;
+      --line:rgba(10,10,14,.08);
 
-    :root {
-      /* Colors */
-      --bg: #ffffff;
-      --bg-2: #fafafa;
-      --bg-3: #f5f5f5;
-      --ink: #0a0a0e;
-      --ink-2: #1a1a1e;
-      --muted: #64748b;
-      --muted-2: #94a3b8;
-      --line: rgba(10,10,14,.08);
+      --gold:#D4AF37; --gold-2:#C89B1A; --gold-3:#F2D37B; --gold-4:#B8941F;
+      --gold-soft:rgba(212,175,55,.14);
+      --gold-border:rgba(212,175,55,.30);
+      --gold-glow:rgba(212,175,55,.35);
 
-      /* Gold Palette */
-      --gold: #D4AF37;
-      --gold-2: #C89B1A;
-      --gold-3: #F2D37B;
-      --gold-4: #B8941F;
-      --gold-soft: rgba(212,175,55,.14);
-      --gold-border: rgba(212,175,55,.30);
-      --gold-glow: rgba(212,175,55,.38);
+      --glass:rgba(255,255,255,.72);
+      --glass-strong:rgba(255,255,255,.90);
+      --card:rgba(255,255,255,.94);
+      --nav:rgba(255,255,255,.78);
 
-      /* Surfaces */
-      --glass: rgba(255,255,255,.72);
-      --glass-strong: rgba(255,255,255,.88);
-      --card: rgba(255,255,255,.92);
-      --nav: rgba(255,255,255,.78);
+      --shadow-xl:0 28px 80px -15px rgba(0,0,0,.18),0 0 1px rgba(0,0,0,.08);
+      --shadow-lg:0 22px 60px -12px rgba(0,0,0,.14),0 0 1px rgba(0,0,0,.06);
+      --shadow:0 14px 40px -10px rgba(0,0,0,.12),0 0 1px rgba(0,0,0,.05);
+      --shadow-sm:0 8px 24px -8px rgba(0,0,0,.10),0 0 1px rgba(0,0,0,.04);
+      --shadow-inner:inset 0 2px 10px rgba(0,0,0,.05);
+      --shadow-gold:0 10px 36px -6px rgba(212,175,55,.28);
+      --shadow-gold-lg:0 18px 55px -10px rgba(212,175,55,.40);
 
-      /* Shadows */
-      --shadow-xl: 0 28px 80px -15px rgba(0,0,0,.18), 0 0 1px rgba(0,0,0,.08);
-      --shadow-lg: 0 22px 60px -12px rgba(0,0,0,.14), 0 0 1px rgba(0,0,0,.06);
-      --shadow: 0 14px 40px -10px rgba(0,0,0,.12), 0 0 1px rgba(0,0,0,.05);
-      --shadow-sm: 0 8px 24px -8px rgba(0,0,0,.10), 0 0 1px rgba(0,0,0,.04);
-      --shadow-inner: inset 0 2px 10px rgba(0,0,0,.05);
-      --shadow-gold: 0 10px 36px -6px rgba(212,175,55,.32);
-      --shadow-gold-lg: 0 18px 55px -10px rgba(212,175,55,.42);
+      --r-xl:32px; --r:24px; --r-md:20px; --r-sm:16px; --r-pill:999px;
 
-      /* Radii */
-      --r-xl: 32px;
-      --r: 24px;
-      --r-md: 20px;
-      --r-sm: 16px;
-      --r-pill: 999px;
+      /* ✅ Mobile-first sizing (باش مايبقاش كبير فالتلفون) */
+      --tap:44px;
+      --gap:14px;
+      --max:1280px;
 
-      /* Spacing */
-      --tap: 48px;
-      --gap: 16px;
-      --max: 1280px;
+      /* ✅ Typography أصغر ومضبوطة فالموبايل */
+      --h1:clamp(24px, 6.4vw, 54px);
+      --h2:clamp(18px, 4.6vw, 34px);
+      --h3:clamp(16px, 4vw, 26px);
+      --p:clamp(13px, 3.2vw, 17px);
+      --sm:clamp(12px, 2.8vw, 14px);
 
-      /* Motion */
-      --t-fast: 150ms;
-      --t: 250ms;
-      --t-slow: 400ms;
-      --ease: cubic-bezier(.19,.9,.38,1);
-      --ease-back: cubic-bezier(.34,1.56,.64,1);
+      --t:220ms;
+      --t-fast:140ms;
+      --t-slow:360ms;
+      --ease:cubic-bezier(.19,.9,.38,1);
+      --ease-back:cubic-bezier(.34,1.56,.64,1);
 
-      /* Typography */
-      --display: clamp(40px, 7vw, 72px);
-      --h1: clamp(32px, 5.5vw, 58px);
-      --h2: clamp(24px, 3.8vw, 36px);
-      --h3: clamp(20px, 2.8vw, 26px);
-      --h4: clamp(18px, 2.4vw, 22px);
-      --p: clamp(15px, 2vw, 17px);
-      --sm: clamp(13px, 1.6vw, 14px);
-
-      /* Effects */
-      --blur: 20px;
-      --blur-lg: 32px;
+      --blur:18px;
+      --blur-lg:28px;
     }
 
-    /* Dark Mode */
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0a0a0e;
-        --bg-2: #121216;
-        --bg-3: #18181c;
-        --ink: #f8f9fa;
-        --ink-2: #e8e9ea;
-        --muted: #94a3b8;
-        --line: rgba(255,255,255,.10);
-
-        --glass: rgba(18,18,22,.72);
-        --glass-strong: rgba(18,18,22,.88);
-        --card: rgba(18,18,22,.92);
-        --nav: rgba(18,18,22,.78);
-
-        --gold-soft: rgba(212,175,55,.20);
-        --gold-border: rgba(212,175,55,.38);
-      }
-    }
-
-    /* Reset */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-
-    body {
-      color: var(--ink);
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background:
-        radial-gradient(1000px 600px at 18% -15%, var(--gold-glow), transparent 68%),
-        radial-gradient(800px 500px at 85% -12%, var(--gold-soft), transparent 62%),
-        linear-gradient(to bottom, var(--bg), var(--bg-2) 50%, var(--bg-3));
-      min-height: 100vh;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background:
-        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(212,175,55,.025) 2px, rgba(212,175,55,.025) 4px),
-        repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(212,175,55,.025) 2px, rgba(212,175,55,.025) 4px);
-      pointer-events: none;
-      opacity: .6;
-      z-index: 0;
-    }
-
-    img { max-width: 100%; display: block; }
-    a { color: inherit; text-decoration: none; transition: all var(--t) var(--ease); }
-    button { font: inherit; cursor: pointer; border: none; background: none; }
-
-    /* Utilities */
-    .wrap { width: min(var(--max), 94vw); margin-inline: auto; position: relative; z-index: 1; }
-
-    /* Buttons */
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-      min-height: var(--tap); padding: 14px 24px; border-radius: var(--r-pill);
-      border: 1.5px solid var(--line); background: var(--glass); box-shadow: var(--shadow-sm);
-      font-weight: 700; font-size: var(--p); letter-spacing: .3px; user-select: none;
-      transition: all var(--t) var(--ease); position: relative; overflow: hidden;
-    }
-    .btn::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle, rgba(255,255,255,.3), transparent 70%); opacity: 0; transition: opacity var(--t-fast) var(--ease); }
-    .btn:hover::before { opacity: 1; }
-    .btn:hover { transform: translateY(-2px) scale(1.02); box-shadow: var(--shadow); }
-    .btn:active { transform: translateY(0) scale(.98); }
-    .btn--gold { background: linear-gradient(135deg, rgba(212,175,55,.24) 0%, rgba(212,175,55,.14) 50%, rgba(242,211,123,.20) 100%); border-color: var(--gold-border); box-shadow: var(--shadow-gold); color: var(--gold-4); font-weight: 800; }
-    .btn--gold:hover { box-shadow: var(--shadow-gold-lg); border-color: var(--gold); }
-    .btn--primary { background: linear-gradient(135deg, var(--gold), var(--gold-2)); border-color: var(--gold-2); color: #fff; font-weight: 900; box-shadow: var(--shadow-gold); }
-    .btn--primary:hover { box-shadow: var(--shadow-gold-lg); transform: translateY(-3px) scale(1.03); }
-    .btn--icon .icon { font-size: 20px; transition: transform var(--t-fast) var(--ease-back); }
-    .btn:hover .icon { transform: scale(1.15) rotate(5deg); }
-
-    /* Navigation */
-    .nav { position: sticky; top: 0; z-index: 100; padding: 14px 0; background: var(--nav); border-bottom: 1.5px solid var(--line); backdrop-filter: blur(var(--blur)); -webkit-backdrop-filter: blur(var(--blur)); box-shadow: var(--shadow-sm); }
-    .nav__inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-
-    .brand { display: flex; align-items: center; gap: 12px; transition: transform var(--t) var(--ease); }
-    .brand:hover { transform: translateX(-3px); }
-    .brand__mark { width: 48px; height: 48px; border-radius: var(--r-md); display: grid; place-items: center; background: linear-gradient(135deg, rgba(212,175,55,.30) 0%, rgba(212,175,55,.10) 100%); border: 1.5px solid var(--gold-border); box-shadow: var(--shadow-gold), var(--shadow-inner); font-weight: 900; font-size: 22px; color: var(--gold); position: relative; overflow: hidden; transition: all var(--t) var(--ease-back); }
-    .brand:hover .brand__mark { transform: rotate(-8deg) scale(1.08); }
-    .brand__mark::before { content: ""; position: absolute; inset: -60%; background: radial-gradient(circle, var(--gold-glow), transparent 68%); filter: blur(14px); animation: float 7s ease-in-out infinite; }
-    @keyframes float { 0%, 100% { transform: translate(-10px, -12px) rotate(0deg); } 50% { transform: translate(10px, 12px) rotate(180deg); } }
-    .brand__text { display: flex; flex-direction: column; gap: 3px; }
-    .brand__text b { font-size: 17px; font-weight: 900; letter-spacing: .5px; }
-    .brand__text span { color: var(--muted); font-size: var(--sm); font-weight: 600; }
-
-    .nav__actions { display: flex; gap: 12px; align-items: center; }
-
-    /* ===== Search ===== */
-    .search { position: relative; min-width: 220px; }
-    .search__input { width: 100%; min-height: var(--tap); border-radius: var(--r-pill); border: 1.5px solid var(--gold-border); background: var(--glass-strong); padding: 0 48px 0 16px; font-size: var(--p); color: var(--ink); box-shadow: var(--shadow-sm); transition: border-color var(--t) var(--ease), box-shadow var(--t) var(--ease); }
-    .search__input::placeholder { color: var(--muted); }
-    .search__input:focus { outline: none; border-color: var(--gold); box-shadow: var(--shadow-gold); }
-    .search__icon { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--gold-4); font-size: 18px; pointer-events: none; }
-    .search__results { position: absolute; inset-inline-start: 0; inset-inline-end: 0; top: calc(100% + 8px); background: var(--glass-strong); border: 1.5px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow); max-height: 320px; overflow: auto; padding: 8px; display: none; z-index: 200; }
-    .search__results.show { display: block; }
-    .search__item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px; border-radius: var(--r-sm); transition: background var(--t) var(--ease), transform var(--t) var(--ease); cursor: pointer; }
-    .search__item:hover { background: var(--gold-soft); transform: translateY(-1px); }
-    .search__item .tag { font-size: 12px; color: var(--muted); }
-    mark.hl { background: linear-gradient(90deg, rgba(212,175,55,.45), rgba(242,211,123,.35)); padding: 0 .2em; border-radius: 6px; }
-
-    /* Hero */
-    .hero { padding: 40px 0 24px; }
-    .hero__grid { display: grid; gap: 20px; }
-
-    .card { border: 1.5px solid var(--line); background: var(--card); box-shadow: var(--shadow-lg); border-radius: var(--r-xl); padding: 28px; position: relative; overflow: hidden; transition: all var(--t-slow) var(--ease); }
-    .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-xl); }
-    .card--glow::after { content: ""; position: absolute; inset: -70%; background: radial-gradient(circle at 28% 20%, var(--gold-glow), transparent 58%), radial-gradient(circle at 72% 15%, rgba(212,175,55,.24), transparent 60%); filter: blur(var(--blur-lg)); opacity: .9; pointer-events: none; animation: float 9s ease-in-out infinite; }
-
-    .badge { display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px; border-radius: var(--r-pill); background: var(--gold-soft); border: 1.5px solid var(--gold-border); color: var(--gold-4); font-weight: 900; font-size: var(--sm); letter-spacing: .5px; box-shadow: var(--shadow-sm); }
-    .spark { width: 12px; height: 12px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), var(--gold-3)); animation: sparkle 2.5s ease-in-out infinite; }
-    .h1 { font-size: var(--h1); margin: 20px 0 16px; letter-spacing: -1.2px; line-height: 1.06; font-weight: 900; position: relative; z-index: 2; }
-    .sub { font-size: var(--p); color: var(--muted); line-height: 1.75; position: relative; z-index: 2; max-width: 70ch; }
-    .ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 24px; position: relative; z-index: 2; }
-
-    /* Section */
-    .section { padding: 24px 0 32px; }
-    .section__head { margin-bottom: 28px; }
-    .section__head h2 { font-size: var(--h2); font-weight: 900; letter-spacing: -.6px; margin-bottom: 12px; }
-    .section__head p { font-size: var(--p); color: var(--muted); line-height: 1.7; }
-
-    /* Tools Grid */
-    .tools { display: grid; gap: 18px; }
-    .tool { border-radius: var(--r-xl); border: 1.5px solid var(--line); background: var(--glass-strong); box-shadow: var(--shadow); padding: 24px; display: flex; flex-direction: column; gap: 16px; transition: all var(--t-slow) var(--ease); position: relative; overflow: hidden; }
-    .tool::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--gold), var(--gold-3)); transform: scaleX(0); transform-origin: left; transition: transform var(--t-slow) var(--ease); }
-    .tool:hover { transform: translateY(-6px); box-shadow: var(--shadow-xl); }
-    .tool:hover::before { transform: scaleX(1); }
-    .tool__top { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-    .tool__icon { width: 56px; height: 56px; border-radius: var(--r); display: grid; place-items: center; background: linear-gradient(135deg, rgba(212,175,55,.24) 0%, rgba(212,175,55,.10) 100%); border: 1.5px solid var(--gold-border); box-shadow: var(--shadow-gold), var(--shadow-inner); font-size: 26px; transition: all var(--t) var(--ease-back); }
-    .tool:hover .tool__icon { transform: scale(1.12) rotate(-8deg); }
-    .chip { padding: 10px 16px; border-radius: var(--r-pill); border: 1.5px solid var(--gold-border); background: var(--gold-soft); color: var(--gold-4); font-size: var(--sm); font-weight: 900; letter-spacing: .5px; }
-    .tool h3 { font-size: var(--h3); font-weight: 900; letter-spacing: -.4px; }
-    .tool p { color: var(--muted); font-size: var(--p); line-height: 1.7; }
-    .tool__actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
-
-    /* Article */
-    .article { background: var(--card); border: 1.5px solid var(--line); border-radius: var(--r-xl); padding: 32px; box-shadow: var(--shadow-lg); margin: 32px 0; }
-    .article h2 { font-size: var(--h2); font-weight: 900; margin-bottom: 20px; color: var(--gold); }
-    .article h3 { font-size: var(--h3); font-weight: 800; margin: 28px 0 14px; display: flex; align-items: center; gap: 10px; }
-    .article p { font-size: var(--p); line-height: 1.8; color: var(--ink-2); margin-bottom: 16px; }
-    .article ul { list-style: none; padding: 0; margin: 20px 0; }
-    .article li { padding: 14px 20px; margin-bottom: 12px; background: var(--glass); border-radius: var(--r-sm); border: 1.5px solid var(--line); display: flex; align-items: flex-start; gap: 12px; transition: all var(--t) var(--ease); }
-    .article li:hover { background: var(--gold-soft); border-color: var(--gold-border); transform: translateX(-4px); }
-    .article li::before { content: "💰"; font-size: 20px; flex-shrink: 0; }
-    .article strong { color: var(--gold-4); font-weight: 800; }
-
-    /* Footer */
-    .footer { margin-top: 32px; padding: 32px 0 40px; border-top: 1.5px solid var(--line); background: var(--glass); backdrop-filter: blur(var(--blur)); }
-    .footer__grid { display: grid; gap: 20px; }
-    .footer small { color: var(--muted); font-size: var(--sm); font-weight: 700; }
-
-    /* ==================== تحسينات الموبايل فقط (بدون تغيير المحتوى) ==================== */
-    @media (max-width: 768px){
+    @media (prefers-color-scheme: dark){
       :root{
-        --tap: 40px;         /* تصغير ارتفاع الأزرار والحقول */
-        --p: 14px;
-        --sm: 12px;
-        --h1: clamp(24px, 6.2vw, 34px);
-        --h2: clamp(18px, 4.2vw, 24px);
-        --h3: clamp(16px, 3.8vw, 20px);
+        --bg:#0a0a0e; --bg-2:#121216; --bg-3:#18181c;
+        --ink:#f8f9fa; --ink-2:#e8e9ea; --muted:#94a3b8;
+        --line:rgba(255,255,255,.10);
+        --glass:rgba(18,18,22,.72);
+        --glass-strong:rgba(18,18,22,.88);
+        --card:rgba(18,18,22,.92);
+        --nav:rgba(18,18,22,.78);
+        --gold-soft:rgba(212,175,55,.20);
+        --gold-border:rgba(212,175,55,.38);
       }
-      .wrap{ width: min(var(--max), 96vw); }
-      .nav{ padding: 10px 0; }
-      .brand__mark{ width: 42px; height: 42px; font-size: 20px; }
-      .brand__text b{ font-size: 15px; }
-      .brand__text span{ font-size: 12px; }
-
-      .btn{ padding: 10px 14px; gap: 8px; font-size: var(--sm); }
-      .btn .icon{ font-size: 18px; }
-      .search__input{ min-height: var(--tap); font-size: 14px; padding: 0 42px 0 12px; }
-
-      .hero{ padding: 22px 0 16px; }
-      .card{ padding: 18px; }
-      .badge{ padding: 8px 12px; font-size: 12px; }
-
-      .tools{ gap: 14px; }
-      .tool{ padding: 16px; gap: 12px; }
-      .tool__icon{ width: 48px; height: 48px; font-size: 22px; }
-      .tool__actions{ gap: 8px; }
     }
 
-    @media (max-width: 380px){
-      .nav__actions { gap: 8px; }
-      .search { min-width: 180px; }
-      .search__input { padding-inline: 12px 40px; font-size: 13px; }
-      .search__results { max-height: 260px; }
-      .btn { padding: 9px 12px; font-size: 11.5px; }
-      .h1 { font-size: clamp(22px, 7vw, 30px); }
-      .card{ padding: 14px; }
-      .tool{ padding: 14px; }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{
+      color:var(--ink);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      background:
+        radial-gradient(900px 520px at 18% -15%, var(--gold-glow), transparent 68%),
+        radial-gradient(760px 500px at 85% -12%, var(--gold-soft), transparent 62%),
+        linear-gradient(to bottom, var(--bg), var(--bg-2) 50%, var(--bg-3));
+      min-height:100vh;
+      line-height:1.65;
+      overflow-x:hidden;
     }
-    /* ============================================================================== */
+    body::before{
+      content:"";
+      position:fixed; inset:0;
+      background:
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(212,175,55,.02) 2px, rgba(212,175,55,.02) 4px),
+        repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(212,175,55,.02) 2px, rgba(212,175,55,.02) 4px);
+      pointer-events:none; opacity:.6; z-index:0;
+    }
 
-    /* Focus */
-    :focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; border-radius: var(--r-sm); }
+    a{color:inherit;text-decoration:none;transition:all var(--t) var(--ease)}
+    button{font:inherit;cursor:pointer;border:0;background:0}
+
+    .wrap{width:min(var(--max), 92vw);margin-inline:auto;position:relative;z-index:1}
+    .sr{position:absolute;inline-size:1px;block-size:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+
+    /* ✅ Buttons */
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      min-height:var(--tap);
+      padding:12px 18px;
+      border-radius:var(--r-pill);
+      border:1.5px solid var(--line);
+      background:var(--glass);
+      box-shadow:var(--shadow-sm);
+      font-weight:800;
+      font-size:var(--sm);
+      user-select:none;
+      transition:all var(--t) var(--ease);
+      position:relative;overflow:hidden;
+      -webkit-tap-highlight-color:transparent;
+    }
+    .btn:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+    .btn:active{transform:translateY(0) scale(.98)}
+    .btn--gold{
+      background:linear-gradient(135deg, rgba(212,175,55,.22), rgba(242,211,123,.18));
+      border-color:var(--gold-border);
+      color:var(--gold-4);
+      box-shadow:var(--shadow-gold);
+    }
+    .btn--primary{
+      background:linear-gradient(135deg, var(--gold), var(--gold-2));
+      border-color:var(--gold-2);
+      color:#fff;
+      box-shadow:var(--shadow-gold);
+    }
+    .btn--primary:hover{box-shadow:var(--shadow-gold-lg)}
+    .btn--icon .icon{font-size:18px;transition:transform var(--t-fast) var(--ease-back)}
+    .btn:hover .icon{transform:scale(1.15) rotate(5deg)}
+
+    :focus-visible{outline:3px solid var(--gold);outline-offset:4px;border-radius:var(--r-sm)}
+
+    /* ✅ NAV: خفيف فالموبايل + search تحت */
+    .nav{
+      position:sticky;top:0;z-index:100;
+      padding:10px 0;
+      background:var(--nav);
+      border-bottom:1.5px solid var(--line);
+      backdrop-filter:blur(var(--blur));
+      -webkit-backdrop-filter:blur(var(--blur));
+      box-shadow:var(--shadow-sm);
+    }
+    .nav__top{
+      display:flex;align-items:center;justify-content:space-between;gap:10px;
+      min-height:52px;
+    }
+    .brand{display:flex;align-items:center;gap:10px;min-height:var(--tap)}
+    .brand__mark{
+      width:42px;height:42px;border-radius:14px;
+      display:grid;place-items:center;
+      background:linear-gradient(135deg, rgba(212,175,55,.28), rgba(212,175,55,.10));
+      border:1.5px solid var(--gold-border);
+      box-shadow:var(--shadow-gold),var(--shadow-inner);
+      font-weight:900;font-size:20px;color:var(--gold);
+      position:relative;overflow:hidden;
+    }
+    .brand__text{display:flex;flex-direction:column;gap:2px;line-height:1.15}
+    .brand__text b{font-size:14px;font-weight:900;letter-spacing:.3px}
+    .brand__text span{font-size:12px;color:var(--muted);font-weight:700}
+
+    .nav__actions{display:flex;gap:8px;align-items:center;flex-shrink:0}
+    .nav__actions .btn{padding:10px 14px}
+
+    .searchbar{
+      margin-top:10px;
+      display:flex;gap:10px;align-items:center;
+    }
+    .search{
+      position:relative;flex:1;min-width:0;
+    }
+    .search__input{
+      width:100%;
+      min-height:var(--tap);
+      border-radius:var(--r-pill);
+      border:1.5px solid var(--gold-border);
+      background:var(--glass-strong);
+      padding:0 44px 0 14px;
+      font-size:14px;
+      color:var(--ink);
+      box-shadow:var(--shadow-sm);
+    }
+    .search__input::placeholder{color:var(--muted)}
+    .search__input:focus{outline:none;border-color:var(--gold);box-shadow:var(--shadow-gold)}
+    .search__icon{
+      position:absolute;right:12px;top:50%;transform:translateY(-50%);
+      font-size:18px;color:var(--gold-4);pointer-events:none;
+    }
+    .search__results{
+      position:absolute;inset-inline:0;top:calc(100% + 8px);
+      background:var(--glass-strong);
+      border:1.5px solid var(--line);
+      border-radius:var(--r);
+      box-shadow:var(--shadow);
+      max-height:280px;overflow:auto;padding:8px;
+      display:none;z-index:200;
+    }
+    .search__results.show{display:block}
+    .search__item{
+      display:flex;gap:10px;align-items:flex-start;
+      padding:10px 12px;border-radius:var(--r-sm);
+      transition:all var(--t) var(--ease);
+      cursor:pointer;
+    }
+    .search__item:hover{background:var(--gold-soft);transform:translateY(-1px)}
+    .search__item .tag{font-size:12px;color:var(--muted)}
+    mark.hl{background:linear-gradient(90deg, rgba(212,175,55,.45), rgba(242,211,123,.30));padding:0 .2em;border-radius:6px}
+
+    /* ✅ HERO */
+    .hero{padding:18px 0 14px}
+    .hero__grid{display:grid;gap:14px}
+    .card{
+      border:1.5px solid var(--line);
+      background:var(--card);
+      box-shadow:var(--shadow-lg);
+      border-radius:var(--r-xl);
+      padding:18px;
+      position:relative;overflow:hidden;
+      transition:all var(--t-slow) var(--ease);
+    }
+    .card:hover{transform:translateY(-3px);box-shadow:var(--shadow-xl)}
+    .card--glow::after{
+      content:"";position:absolute;inset:-70%;
+      background:radial-gradient(circle at 28% 20%, var(--gold-glow), transparent 58%),
+                 radial-gradient(circle at 72% 15%, rgba(212,175,55,.22), transparent 60%);
+      filter:blur(var(--blur-lg));opacity:.85;pointer-events:none;
+      animation:float 9s ease-in-out infinite;
+    }
+    @keyframes float{0%,100%{transform:translate(-10px,-12px) rotate(0deg)}50%{transform:translate(10px,12px) rotate(180deg)}}
+
+    .badge{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:10px 14px;min-height:var(--tap);
+      border-radius:var(--r-pill);
+      background:var(--gold-soft);
+      border:1.5px solid var(--gold-border);
+      color:var(--gold-4);
+      font-weight:900;font-size:12px;
+      box-shadow:var(--shadow-sm);
+      width:max-content;
+      position:relative;z-index:2;
+    }
+    .spark{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-3))}
+    .h1{font-size:var(--h1);line-height:1.12;font-weight:950;letter-spacing:-.8px;margin:14px 0 10px;position:relative;z-index:2}
+    .sub{font-size:var(--p);color:var(--muted);line-height:1.8;position:relative;z-index:2}
+    .ctas{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;position:relative;z-index:2}
+
+    /* ✅ SECTION / TOOLS */
+    .section{padding:16px 0 22px}
+    .section__head{margin-bottom:14px}
+    .section__head h2{font-size:var(--h2);font-weight:950;letter-spacing:-.5px;margin-bottom:6px}
+    .section__head p{font-size:var(--p);color:var(--muted)}
+    .tools{display:grid;gap:12px}
+
+    .tool{
+      border-radius:var(--r-xl);
+      border:1.5px solid var(--line);
+      background:var(--glass-strong);
+      box-shadow:var(--shadow);
+      padding:16px;
+      display:flex;flex-direction:column;gap:12px;
+      position:relative;overflow:hidden;
+      transition:all var(--t-slow) var(--ease);
+    }
+    .tool::before{
+      content:"";position:absolute;top:0;left:0;right:0;height:3px;
+      background:linear-gradient(90deg,var(--gold),var(--gold-3));
+      transform:scaleX(0);transform-origin:right;
+      transition:transform var(--t-slow) var(--ease);
+    }
+    .tool:hover{transform:translateY(-4px);box-shadow:var(--shadow-xl)}
+    .tool:hover::before{transform:scaleX(1)}
+    .tool h3{font-size:var(--h3);font-weight:950;letter-spacing:-.3px}
+    .tool p{font-size:var(--p);color:var(--muted);line-height:1.85}
+    .tool__actions{display:flex;gap:10px;flex-wrap:wrap}
+
+    /* ✅ FOOTER */
+    .footer{
+      margin-top:18px;
+      padding:22px 0 28px;
+      border-top:1.5px solid var(--line);
+      background:var(--glass);
+      backdrop-filter:blur(var(--blur));
+      -webkit-backdrop-filter:blur(var(--blur));
+    }
+    .footer__grid{display:grid;gap:14px}
+    .footer small{color:var(--muted);font-size:var(--sm);font-weight:700}
+
+    /* ✅ Desktop improvements only */
+    @media (min-width: 860px){
+      .wrap{width:min(var(--max), 94vw)}
+      .nav{padding:14px 0}
+      .brand__mark{width:48px;height:48px;font-size:22px}
+      .brand__text b{font-size:17px}
+      .brand__text span{font-size:14px}
+
+      .searchbar{margin-top:0}
+      .nav__top{gap:16px}
+      .nav__layout{
+        display:flex;align-items:center;justify-content:space-between;gap:16px
+      }
+
+      .hero{padding:34px 0 18px}
+      .hero__grid{grid-template-columns:1.4fr .6fr;gap:16px}
+      .card{padding:26px}
+      .tools{grid-template-columns:repeat(2, 1fr);gap:14px}
+    }
+    @media (min-width: 1120px){
+      .tools{grid-template-columns:repeat(3, 1fr)}
+    }
+    @media (prefers-reduced-motion: reduce){
+      *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+    }
   </style>
 </head>
 
 <body>
   <a id="home" style="position:relative;top:-80px"></a>
 
-  <!-- Navigation -->
-  <nav class="nav">
-    <div class="wrap nav__inner">
-      <a class="brand" href="#home">
-        <span class="brand__mark">G</span>
-        <span class="brand__text">
-          <b>المنصة الذهبية</b>
-          <span>أدوات احترافية • ربح حقيقي</span>
-        </span>
-      </a>
+  <!-- NAV -->
+  <nav class="nav" aria-label="التنقل">
+    <div class="wrap">
+      <div class="nav__top">
+        <a class="brand" href="#home" aria-label="المنصة الذهبية">
+          <span class="brand__mark" aria-hidden="true">G</span>
+          <span class="brand__text">
+            <b>المنصة الذهبية</b>
+            <span>أدوات احترافية • ربح حقيقي</span>
+          </span>
+        </a>
 
-      <div class="nav__actions">
-        <!-- Search -->
-        <div class="search" role="search">
-          <input id="globalSearch" class="search__input" type="search" placeholder="إبحث داخل الصفحة..." aria-label="بحث داخل الصفحة" />
-          <span class="search__icon">🔎</span>
+        <div class="nav__actions">
+          <a class="btn btn--gold btn--icon" href="#tools">
+            <span class="icon">🛠️</span><span>الأدوات</span>
+          </a>
+          <a class="btn btn--primary btn--icon" href="tools/RIB7.html">
+            <span class="icon">💰</span><span>ابدأ الربح</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- ✅ Search under nav on mobile -->
+      <div class="searchbar" role="search">
+        <div class="search">
+          <label class="sr" for="globalSearch">بحث داخل الصفحة</label>
+          <input id="globalSearch" class="search__input" type="search" placeholder="إبحث داخل الصفحة..." />
+          <span class="search__icon" aria-hidden="true">🔎</span>
           <div id="searchResults" class="search__results" aria-live="polite"></div>
         </div>
-
-        <a class="btn btn--gold btn--icon" href="#tools">
-          <span class="icon">🛠️</span>
-          <span>الأدوات</span>
-        </a>
-        <a class="btn btn--primary btn--icon" href="tools/RIB7.html">
-          <span class="icon">💰</span>
-          <span>ابدأ الربح</span>
-        </a>
       </div>
     </div>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- HERO -->
   <header class="hero">
     <div class="wrap hero__grid">
-      <!-- Main Card -->
       <section class="card card--glow">
-        <span class="badge">
-          <span class="spark"></span>
-          منصة احترافية متكاملة
-        </span>
+        <span class="badge"><span class="spark" aria-hidden="true"></span> منصة احترافية متكاملة</span>
 
         <h1 class="h1">أدواتك المثالية لكسب المال من الإنترنت 💰</h1>
         <p class="sub">
-          منصة شاملة توفر لك جميع الأدوات اللازمة لبدء وتطوير مشاريعك الرقمية. 
-          من إنشاء المحتوى بالذكاء الاصطناعي إلى تحرير الصور وتحميل الفيديوهات - 
-          كل ما تحتاجه في مكان واحد لتحقيق دخل مستمر.
+          منصة شاملة كتجمع لك أدوات مهمة: محتوى، روابط مفيدة، وأدلة عملية.
+          الهدف: تجربة سريعة فالتليفون وتنظيم واضح باش الزائر يبقى يتصفح.
         </p>
 
         <div class="ctas">
-          <a class="btn btn--primary btn--icon" href="tools/RIB7.html">
-            <span class="icon">🚀</span>
-            <span>ابدأ الربح الآن</span>
-          </a>
-          <a class="btn btn--gold btn--icon" href="#article">
-            <span class="icon">📖</span>
-            <span>دليل الربح الشامل</span>
-          </a>
+          <a class="btn btn--primary btn--icon" href="tools/RIB7.html"><span class="icon">🚀</span><span>ابدأ الربح الآن</span></a>
+          <a class="btn btn--gold btn--icon" href="#article"><span class="icon">📖</span><span>دليل الربح</span></a>
         </div>
       </section>
 
-      <!-- Quick Stats Card -->
-      <aside class="card">
-        <h3 style="font-size:var(--h3);font-weight:900;margin-bottom:20px">⚡ لماذا منصتنا؟</h3>
-        <ul style="list-style:none;padding:0;margin:0;display:grid;gap:14px">
-          <li style="padding:14px;background:var(--gold-soft);border:1.5px solid var(--gold-border);border-radius:var(--r-sm)">
-            <strong style="color:var(--gold-4);font-weight:900">✨ أدوات مجانية</strong>
-            <p style="margin:6px 0 0;font-size:var(--sm);color:var(--muted)">استخدم جميع الأدوات بدون قيود</p>
-          </li>
-          <li style="padding:14px;background:var(--gold-soft);border:1.5px solid var(--gold-border);border-radius:var(--r-sm)">
-            <strong style="color:var(--gold-4);font-weight:900">🤖 ذكاء اصطناعي</strong>
-            <p style="margin:6px 0 0;font-size:var(--sm);color:var(--muted)">تكامل مع Gemini AI مجاناً</p>
-          </li>
-          <li style="padding:14px;background:var(--gold-soft);border:1.5px solid var(--gold-border);border-radius:var(--r-sm)">
-            <strong style="color:var(--gold-4);font-weight:900">💰 ربح حقيقي</strong>
-            <p style="margin:6px 0 0;font-size:var(--sm);color:var(--muted)">طرق مجربة لكسب المال</p>
-          </li>
-        </ul>
+      <aside class="card" aria-label="لماذا منصتنا؟">
+        <h3 style="font-size:var(--h3);font-weight:950;margin-bottom:12px">⚡ لماذا منصتنا؟</h3>
+        <div style="display:grid;gap:10px">
+          <div style="padding:12px;background:var(--gold-soft);border:1.5px solid var(--gold-border);border-radius:var(--r-sm)">
+            <b style="display:block;color:var(--gold-4);font-weight:950">✨ أدوات مجانية</b>
+            <div style="margin-top:4px;font-size:var(--sm);color:var(--muted);font-weight:700">واجهة خفيفة وسريعة</div>
+          </div>
+          <div style="padding:12px;background:var(--gold-soft);border:1.5px solid var(--gold-border);border-radius:var(--r-sm)">
+            <b style="display:block;color:var(--gold-4);font-weight:950">🤖 ذكاء اصطناعي</b>
+            <div style="margin-top:4px;font-size:var(--sm);color:var(--muted);font-weight:700">روابط وأدلة مفيدة</div>
+          </div>
+          <div style="padding:12px;background:var(--gold-soft);border:1.5px solid var(--gold-border);border-radius:var(--r-sm)">
+            <b style="display:block;color:var(--gold-4);font-weight:950">💰 محتوى منظم</b>
+            <div style="margin-top:4px;font-size:var(--sm);color:var(--muted);font-weight:700">صفحات متعددة داخل الموقع</div>
+          </div>
+        </div>
       </aside>
     </div>
   </header>
 
-  <!-- Tools Section -->
+  <!-- TOOLS -->
   <main class="section" id="tools">
     <div class="wrap">
       <div class="section__head">
         <h2>🛠️ الأدوات الاحترافية</h2>
-        <p>مجموعة شاملة من الأدوات المتطورة لتسهيل عملك وزيادة إنتاجيتك</p>
+        <p>اختار أداة وكمّل… كلشي مرتب باش يخدم مزيان فالموبايل.</p>
       </div>
 
       <div class="tools">
         <article class="tool">
-          <h3 style="font-weight:900;color:var(--gold-4)">📱 iPhone بثمن رائع</h3>
-          <p style="font-size:var(--p);color:var(--muted);line-height:1.7">
-            اكتشف أفضل عروض iPhone من 11 حتى 17 بأثمنة استثنائية
-            تتراوح بين <strong>10€</strong> و<strong>100€</strong> فقط.
-            جودة ممتازة، سعات متعددة، وألوان مختلفة للاختيار.
-          </p>
+          <h3 style="color:var(--gold-4)">📱 عروض iPhone (دليل + نصائح)</h3>
+          <p>صفحة فيها شرح، روابط، ونصائح قبل الشراء + كيفاش تقارن الموديلات والسعات.</p>
           <div class="tool__actions">
-            <a class="btn btn--primary" href="tools/IPHONE.html">
-              <span style="font-size:18px">📱</span>
-              تصفح iPhone الآن
-            </a>
-          </div>
-        </article>
-        <article class="tool">
-  <h3 style="font-weight:900;color:var(--gold-4)">🇺🇸 دليل فيزا أمريكا لحضور كأس العالم</h3>
-
-  <p style="font-size:var(--p);color:var(--muted);line-height:1.7">
-    كتفكر تمشي تشوف ماتش فـ كأس العالم فـ أمريكا؟ هاد الدليل كيعطيك
-    <strong>الخطوات كاملة</strong> (B-2)، <strong>Checklist</strong> قابلة للنسخ،
-    وأجوبة مقنعة للمقابلة — مع <strong>روابط رسمية فقط</strong>.
-    كلشي منظم ومناسب للموبايل.
-  </p>
-
-  <div class="tool__actions">
-    <a class="btn btn--primary" href="tools/USA.html">
-      <span style="font-size:18px">🧾</span>
-      فتح الدليل الآن
-    </a>
-  </div>
-</article>
-        <article class="tool">
-  <h3 style="font-weight:900;color:var(--gold-4)">🌍 فرص عمل بالخارج</h3>
-
-  <p style="font-size:var(--p);color:var(--muted);line-height:1.7">
-    اكتشف أفضل المواقع الرسمية للبحث عن عمل في 
-    <strong>أوروبا، ألمانيا، كندا، بريطانيا</strong>  
-    مع خطوات التسجيل بشكل قانوني وبروابط آمنة.
-  </p>
-
-  <div class="tool__actions">
-    <a class="btn btn--primary" href="tools/KHARIJ.html"target="_blank" rel="noopener">
-      <span style="font-size:18px">🌍</span>
-      فتح دليل الخارج
-    </a>
-  </div>
-</article>
-        <!-- Tool 1 -->
-        <article class="tool">
-          <div class="tool__top">
-            <div class="tool__icon">🤖</div>
-            <span class="chip">AI مجاني</span>
-          </div>
-          <h3>مساعد الذكاء الاصطناعي</h3>
-          <p>استخدم Gemini AI لكتابة المحتوى، الترجمة، البرمجة، والمزيد. مجاني تماماً وبدون حدود!</p>
-          <div class="tool__actions">
-            <a class="btn btn--primary" href="https://gemini.google.com/app?hl=ar" target="_blank" rel="noopener">
-              <span style="font-size:18px">▶️</span>
-              فتح Gemini AI
-            </a>
+            <a class="btn btn--primary" href="tools/IPHONE.html"><span class="icon">📱</span><span>فتح الصفحة</span></a>
           </div>
         </article>
 
-        <!-- Tool 2 -->
         <article class="tool">
-          <div class="tool__top">
-            <div class="tool__icon">🖼️</div>
-            <span class="chip">دائم العمل</span>
-          </div>
-          <h3>ضاغط الصور الاحترافي</h3>
-          <p>ضغط الصور بجودة عالية، تغيير الحجم، تحويل الصيغة. كل شيء من متصفحك بدون رفع!</p>
+          <h3 style="color:var(--gold-4)">🇺🇸 دليل فيزا أمريكا لحضور كأس العالم</h3>
+          <p>خطوات منظمة (B-2) + checklist + روابط رسمية باش تبقى المعلومات صحيحة.</p>
           <div class="tool__actions">
-            <a class="btn btn--primary" href="https://compressor.io/" target="_blank" rel="noopener">
-              <span style="font-size:18px">▶️</span>
-              فتح الأداة
-            </a>
+            <a class="btn btn--primary" href="tools/USA.html"><span class="icon">🧾</span><span>فتح الدليل</span></a>
           </div>
         </article>
 
-        <!-- Tool 3 -->
         <article class="tool">
-          <div class="tool__top">
-            <div class="tool__icon">⬇️</div>
-            <span class="chip">مجاني</span>
-          </div>
-          <h3>تحميل من Instagram و Facebook</h3>
-          <p>حمّل الفيديوهات والصور والستوريز من Instagram و Facebook بجودة عالية ومجاناً تماماً!</p>
+          <h3 style="color:var(--gold-4)">🌍 فرص عمل بالخارج</h3>
+          <p>مواقع مفيدة للبحث عن عمل بطريقة قانونية + نصائح للـ CV والتقديم.</p>
           <div class="tool__actions">
-            <a class="btn btn--primary" href="https://fr.savefrom.net/153ZQ/download-from-instagram" target="_blank" rel="noopener">
-              <span style="font-size:18px">⬇️</span>
-              ابدأ التحميل
-            </a>
+            <a class="btn btn--primary" href="tools/KHARIJ.html" target="_blank" rel="noopener"><span class="icon">🌍</span><span>فتح الدليل</span></a>
           </div>
         </article>
 
-        <!-- Tool 4 -->
         <article class="tool">
-          <div class="tool__top">
-            <div class="tool__icon">💰</div>
-            <span class="chip">دليل شامل</span>
-          </div>
-          <h3>دليل الربح من الإنترنت</h3>
-          <p>استراتيجيات مجربة وطرق عملية لبدء كسب المال من الإنترنت. خطوة بخطوة!</p>
+          <h3>🤖 Gemini AI</h3>
+          <p>استخدم Gemini لكتابة المحتوى، الترجمة، والأفكار بسرعة.</p>
           <div class="tool__actions">
-            <a class="btn btn--primary" href="tools/RIB7.html">
-              <span style="font-size:18px">🚀</span>
-              ابدأ الآن
-            </a>
-            <a class="btn btn--gold" href="#article">
-              <span style="font-size:16px">📖</span>
-              اقرأ المقال
-            </a>
+            <a class="btn btn--primary" href="https://gemini.google.com/app?hl=ar" target="_blank" rel="noopener"><span class="icon">▶️</span><span>فتح Gemini</span></a>
           </div>
         </article>
 
-        <!-- Tool 5 (كان مولد المحتوى — خليتو وزدت تحته كرت iPhone) -->
         <article class="tool">
-          <div class="tool__top">
-            <div class="tool__icon">✨</div>
-            <span class="chip">مولد ذكي</span>
-          </div>
-          <h3>مولد المحتوى الإبداعي</h3>
-          <p>أنشئ عناوين جذابة، وصوفات، هاشتاغات، ومحتوى لوسائل التواصل بضغطة زر!</p>
+          <h3>🖼️ ضاغط الصور</h3>
+          <p>ضغط وتحويل الصور بسرعة وبجودة مزيانة.</p>
           <div class="tool__actions">
-            <a class="btn btn--gold" href="https://gemini.google.com/app?hl=ar" target="_blank" rel="noopener">
-              <span style="font-size:18px">✨</span>
-              جرب الآن
-            </a>
+            <a class="btn btn--primary" href="https://compressor.io/" target="_blank" rel="noopener"><span class="icon">▶️</span><span>فتح الأداة</span></a>
           </div>
         </article>
 
-        <!-- كرت iPhone الترويجي (متروك كما أضفتَه) -->
-        
-
-        <!-- Tool 6 -->
         <article class="tool">
-          <div class="tool__top">
-            <div class="tool__icon">🎨</div>
-            <span class="chip">تصميم</span>
-          </div>
-          <h3>أدوات التصميم المجانية</h3>
-          <p>مجموعة من أفضل أدوات التصميم المجانية لإنشاء محتوى بصري احترافي بسهولة.</p>
+          <h3>⬇️ تحميل IG/FB</h3>
+          <p>أداة خارجية للتحميل (روابط فقط) — استعملها بحذر وطبق شروط المنصات.</p>
           <div class="tool__actions">
-            <a class="btn btn--gold" href="https://www.canva.com/" target="_blank" rel="noopener">
-              <span style="font-size:18px">🎨</span>
-              Canva
-            </a>
-            <a class="btn btn--gold" href="https://www.figma.com/" target="_blank" rel="noopener">
-              <span style="font-size:16px">📐</span>
-              Figma
-            </a>
+            <a class="btn btn--primary" href="https://fr.savefrom.net/153ZQ/download-from-instagram" target="_blank" rel="noopener"><span class="icon">⬇️</span><span>ابدأ التحميل</span></a>
           </div>
         </article>
       </div>
     </div>
   </main>
 
-  <!-- Article Section -->
+  <!-- ARTICLE -->
   <section class="section" id="article">
     <div class="wrap">
-      <article class="article">
-        <h2>💰 الدليل الشامل للربح من الإنترنت في 2025</h2>
-        <p>
-          في عصر التحول الرقمي، أصبح الربح من الإنترنت ليس مجرد حلم بل واقع يعيشه ملايين الأشخاص حول العالم. 
-          سواء كنت طالباً، موظفاً، أو تبحث عن مصدر دخل إضافي، فإن الفرص المتاحة أمامك لا حصر لها.
+      <article class="card" style="padding:18px">
+        <h2 style="font-size:var(--h2);font-weight:950;color:var(--gold);margin-bottom:10px">💰 الدليل الشامل للربح من الإنترنت</h2>
+        <p class="sub" style="max-width:unset">
+          خليه مقال منظم بزاف (عناوين قصيرة + نقاط) باش يبان زوين فالموبايل ويجيب SEO.
         </p>
 
-        <h3>🎯 لماذا يجب أن تبدأ الآن؟</h3>
-        <p>
-          سوق العمل الحر والربح من الإنترنت في نمو متسارع... (نفس المحتوى).
-        </p>
-
-        <!-- ... بقية المقال كما هو ... -->
-
-        <div style="margin-top:32px;padding:24px;background:var(--gold-soft);border-radius:var(--r);border:2px solid var(--gold-border)">
-          <h3 style="margin:0 0 16px 0;color:var(--gold)">🎁 هدية خاصة</h3>
-          <p style="margin:0 0 20px 0">
-            ابدأ رحلتك في الربح من الإنترنت الآن! استخدم أدواتنا المجانية وتابع دليلنا الشامل 
-            للوصول إلى أهدافك المالية.
-          </p>
-          <a class="btn btn--primary" href="tools/RIB7.html" style="display:inline-flex">
-            <span style="font-size:20px">🚀</span>
-            <span>ابدأ رحلة النجاح الآن</span>
-          </a>
+        <div class="ctas" style="margin-top:14px">
+          <a class="btn btn--primary btn--icon" href="tools/RIB7.html"><span class="icon">🚀</span><span>ابدأ الآن</span></a>
+          <a class="btn btn--gold btn--icon" href="#tools"><span class="icon">🛠️</span><span>رجع للأدوات</span></a>
         </div>
       </article>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="wrap footer__grid">
-      <div style="display:flex;align-items:center;gap:14px">
-        <span class="brand__mark" style="width:46px;height:46px">G</span>
+      <div style="display:flex;align-items:center;gap:12px">
+        <span class="brand__mark" style="width:44px;height:44px">G</span>
         <div>
-          <b style="font-size:16px;font-weight:900;display:block;margin-bottom:4px">المنصة الذهبية</b>
-          <small>أدوات احترافية • ربح حقيقي • مجاناً 100%</small>
+          <b style="font-size:14px;font-weight:950;display:block;margin-bottom:3px">المنصة الذهبية</b>
+          <small>واجهة موبايل • سريعة • منظمة</small>
         </div>
       </div>
 
-      <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end">
-        <a class="btn btn--gold" href="#tools">الأدوات</a>
-        <a class="btn btn--gold" href="tools/RIB7.html">ابدأ الربح</a>
-        <a class="btn btn--gold" href="#article">المقال</a>
-      </div>
-
-      <div style="grid-column:1/-1;padding-top:20px;border-top:1px solid var(--line)">
-        <small>
-          © <span id="year"></span> المنصة الذهبية - جميع الحقوق محفوظة • 
-          صُنعت بـ <span style="color:var(--gold)">💛</span> لمساعدتك على النجاح
-        </small>
+      <div style="padding-top:10px;border-top:1px solid var(--line)">
+        <small>© <span id="year"></span> جميع الحقوق محفوظة</small>
       </div>
     </div>
   </footer>
@@ -598,114 +494,103 @@
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Smooth scroll for anchors
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
-        if (href === '#') return;
-        const target = document.querySelector(href);
-        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        const href = a.getAttribute('href');
+        if(!href || href === '#') return;
+        const t = document.querySelector(href);
+        if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth', block:'start'}); }
       });
     });
 
-    // Animate tools on scroll
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.style.opacity = '1'; entry.target.style.transform = 'translateY(0)'; } });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.tool').forEach((tool, i) => {
-      tool.style.opacity = '0';
-      tool.style.transform = 'translateY(30px)';
-      tool.style.transition = `all 0.7s cubic-bezier(0.19, 0.9, 0.38, 1) ${i * 0.1}s`;
-      observer.observe(tool);
-    });
-
-    // ===== In-page Search =====
+    // In-page search (same logic, optimized)
     const input = document.getElementById('globalSearch');
     const resultsEl = document.getElementById('searchResults');
-    const nodes = Array.from(document.querySelectorAll(
-      'h1, h2, h3, .tool h3, .tool p, .article p, .article li, .section__head p'
-    ));
+    const nodes = Array.from(document.querySelectorAll('h1,h2,h3,.tool p,.sub'));
 
-    function stripHighlights() {
-      document.querySelectorAll('mark.hl').forEach(m => {
-        const parent = m.parentNode;
-        parent.replaceChild(document.createTextNode(m.textContent), m);
-        parent.normalize();
+    function clearHighlights(){
+      document.querySelectorAll('mark.hl').forEach(m=>{
+        const p = m.parentNode;
+        p.replaceChild(document.createTextNode(m.textContent), m);
+        p.normalize();
       });
     }
 
-    function highlightMatches(el, q) {
-      const walk = (node) => {
-        if (node.nodeType === 3) {
-          const text = node.nodeValue;
-          const idx = text.toLowerCase().indexOf(q.toLowerCase());
-          if (q && idx !== -1) {
-            const before = document.createTextNode(text.slice(0, idx));
-            const match = document.createElement('mark'); match.className = 'hl'; match.textContent = text.slice(idx, idx + q.length);
-            const after = document.createTextNode(text.slice(idx + q.length));
+    function highlight(el, q){
+      const walk = (node)=>{
+        if(node.nodeType === 3){
+          const txt = node.nodeValue;
+          const idx = txt.toLowerCase().indexOf(q.toLowerCase());
+          if(q && idx !== -1){
+            const before = document.createTextNode(txt.slice(0, idx));
+            const match = document.createElement('mark'); match.className='hl'; match.textContent = txt.slice(idx, idx+q.length);
+            const after  = document.createTextNode(txt.slice(idx+q.length));
             const frag = document.createDocumentFragment();
             frag.appendChild(before); frag.appendChild(match); frag.appendChild(after);
             node.parentNode.replaceChild(frag, node);
           }
           return;
         }
-        if (node.nodeType === 1 && node.childNodes) {
-          Array.from(node.childNodes).forEach(walk);
-        }
+        if(node.nodeType === 1) Array.from(node.childNodes).forEach(walk);
       };
       walk(el);
     }
 
-    function buildResultItem(node, q) {
-      const text = (node.textContent || '').trim();
-      const title = text.length > 96 ? text.slice(0, 96) + '…' : text;
+    function itemFor(node, q){
+      const text = (node.textContent||'').trim();
+      const title = text.length > 90 ? text.slice(0,90)+'…' : text;
+      const kind = node.closest('.tool') ? 'أداة' : node.tagName.match(/^H[1-3]$/) ? 'عنوان' : 'نص';
+
       const item = document.createElement('div');
       item.className = 'search__item';
-      item.setAttribute('tabindex','0');
-      const kind = node.closest('.tool') ? 'أداة' : node.closest('.article') ? 'مقال' : node.tagName.match(/^H[1-3]$/) ? 'عنوان' : 'نص';
-      const safe = title.replace(new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'ig'), (m) => `<mark class="hl">${m}</mark>`);
-      item.innerHTML = `<div><div style="font-weight:800">${safe}</div><div class="tag" style="font-size:12px;color:var(--muted)">${kind}</div></div>`;
-      item.addEventListener('click', () => {
-        node.scrollIntoView({ behavior:'smooth', block:'center' });
-        node.setAttribute('tabindex','-1');
-        node.focus?.({preventScroll:true});
-        setTimeout(() => node.removeAttribute('tabindex'), 1000);
+      item.tabIndex = 0;
+
+      const safe = title.replace(new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'ig'), m => `<mark class="hl">${m}</mark>`);
+      item.innerHTML = `<div><div style="font-weight:900">${safe}</div><div class="tag">${kind}</div></div>`;
+
+      item.addEventListener('click', ()=>{
+        node.scrollIntoView({behavior:'smooth', block:'center'});
         resultsEl.classList.remove('show');
       });
-      item.addEventListener('keydown', (e) => { if (e.key === 'Enter') item.click(); });
+      item.addEventListener('keydown', (e)=>{ if(e.key==='Enter') item.click(); });
       return item;
     }
 
-    function search(q) {
-      resultsEl.innerHTML = '';
-      stripHighlights();
-      if (!q || q.trim().length < 2) { resultsEl.classList.remove('show'); return; }
-      const found = [];
-      nodes.forEach(n => {
-        if ((n.textContent || '').toLowerCase().includes(q.toLowerCase())) {
-          highlightMatches(n, q); found.push(n);
+    function doSearch(q){
+      resultsEl.innerHTML='';
+      clearHighlights();
+      if(!q || q.trim().length < 2){ resultsEl.classList.remove('show'); return; }
+
+      const found=[];
+      nodes.forEach(n=>{
+        if((n.textContent||'').toLowerCase().includes(q.toLowerCase())){
+          highlight(n, q);
+          found.push(n);
         }
       });
-      if (!found.length) {
-        const empty = document.createElement('div'); empty.className = 'search__item';
-        empty.innerHTML = '<div>لا نتائج مطابقة… جرّب كلمة أخرى.</div>';
-        resultsEl.appendChild(empty); resultsEl.classList.add('show'); return;
+
+      if(!found.length){
+        const empty=document.createElement('div');
+        empty.className='search__item';
+        empty.innerHTML='<div>لا نتائج… جرّب كلمة أخرى.</div>';
+        resultsEl.appendChild(empty);
+        resultsEl.classList.add('show');
+        return;
       }
-      found.slice(0, 20).forEach(n => resultsEl.appendChild(buildResultItem(n, q)));
+
+      found.slice(0, 18).forEach(n=>resultsEl.appendChild(itemFor(n, q)));
       resultsEl.classList.add('show');
     }
 
-    input.addEventListener('input', (e) => search(e.target.value));
-    input.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') { resultsEl.classList.remove('show'); input.blur(); }
-      if (e.key === 'Enter') { const first = resultsEl.querySelector('.search__item'); if (first) first.click(); }
+    input.addEventListener('input', e=>doSearch(e.target.value));
+    input.addEventListener('keydown', e=>{
+      if(e.key==='Escape'){ resultsEl.classList.remove('show'); input.blur(); }
+      if(e.key==='Enter'){ const first = resultsEl.querySelector('.search__item'); if(first) first.click(); }
     });
-    document.addEventListener('click', (e) => { if (!resultsEl.contains(e.target) && e.target !== input) { resultsEl.classList.remove('show'); } });
-
-    // Console note
-    console.log('%c💰 المنصة الذهبية', 'font-size:24px;font-weight:900;color:#D4AF37');
-    console.log('%c🚀 ابدأ رحلتك نحو النجاح المالي!', 'font-size:14px;color:#64748b');
+    document.addEventListener('click', e=>{
+      if(!resultsEl.contains(e.target) && e.target !== input) resultsEl.classList.remove('show');
+    });
   </script>
 </body>
 </html>
