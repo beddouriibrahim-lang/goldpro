@@ -1,0 +1,720 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="description" content="دليل التسجيل في مواقع رسمية للبحث عن عمل بالخارج + روابط آمنة (ألمانيا/أوروبا/كندا/بريطانيا)." />
+  <meta name="theme-color" content="#D4AF37" />
+  <title>دليل: كيفاش تسجّل فمواقع الخدمة فـ الخارج (روابط رسمية وآمنة)</title>
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --bg2:#fafafa;
+      --ink:#0b0b10;
+      --muted:#667085;
+      --line:rgba(10,10,20,.10);
+
+      --gold:#D4AF37;
+      --gold2:#C89B1A;
+      --goldSoft:rgba(212,175,55,.14);
+      --goldBorder:rgba(212,175,55,.30);
+      --glow:rgba(212,175,55,.35);
+
+      --card:rgba(255,255,255,.88);
+      --glass:rgba(255,255,255,.70);
+
+      --r24:24px;
+      --r18:18px;
+      --pill:999px;
+
+      --tap:44px;        /* Touch target */
+      --max:1100px;
+
+      --shadow:0 18px 50px rgba(10,10,20,.10);
+      --shadow2:0 10px 28px rgba(10,10,20,.08);
+
+      --ease:cubic-bezier(.2,.9,.35,1);
+      --t:220ms;
+
+      /* Fluid typography from ~390px to 1440px */
+      --h1: clamp(28px, 4.6vw, 48px);
+      --h2: clamp(18px, 2.8vw, 28px);
+      --h3: clamp(16px, 2.1vw, 20px);
+      --p:  clamp(14px, 1.9vw, 16px);
+      --sm: clamp(12px, 1.6vw, 13px);
+    }
+
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#0b0b10;
+        --bg2:#12121a;
+        --ink:#f4f6fb;
+        --muted:#a4adbf;
+        --line:rgba(255,255,255,.12);
+        --card:rgba(18,18,26,.88);
+        --glass:rgba(18,18,26,.70);
+        --shadow:0 18px 55px rgba(0,0,0,.40);
+        --shadow2:0 10px 28px rgba(0,0,0,.34);
+      }
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%; overflow-x:hidden}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(900px 520px at 15% -12%, var(--glow), transparent 65%),
+        radial-gradient(700px 420px at 88% -10%, var(--goldSoft), transparent 58%),
+        linear-gradient(var(--bg), var(--bg2));
+      line-height:1.7;
+    }
+
+    a{color:inherit; text-decoration:none}
+    .wrap{width:min(var(--max), 92vw); margin-inline:auto}
+
+    /* Glassmorphism Nav */
+    .nav{
+      position:sticky; top:0; z-index:50;
+      background:var(--glass);
+      border-bottom:1px solid var(--line);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+    .nav__in{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; padding:12px 0;
+      min-height:64px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      min-height:var(--tap);
+      user-select:none;
+    }
+    .mark{
+      width:44px; height:44px; border-radius:16px;
+      display:grid; place-items:center;
+      border:1px solid var(--goldBorder);
+      background:linear-gradient(135deg, rgba(212,175,55,.25), rgba(212,175,55,.08));
+      box-shadow:0 12px 32px rgba(212,175,55,.18);
+      font-weight:900; color:var(--gold);
+    }
+    .brand b{font-size:14px; letter-spacing:.2px}
+    .brand span{display:block; font-size:var(--sm); color:var(--muted)}
+
+    .nav__actions{display:flex; align-items:center; gap:10px}
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      min-height:var(--tap);
+      padding:10px 14px;
+      border-radius:var(--pill);
+      border:1px solid var(--line);
+      background:var(--glass);
+      box-shadow:var(--shadow2);
+      transition:transform var(--t) var(--ease), box-shadow var(--t) var(--ease);
+      -webkit-tap-highlight-color: transparent;
+      cursor:pointer;
+      font-weight:800;
+      font-size:var(--p);
+      gap:8px;
+    }
+    .btn:hover{transform:translate3d(0,-2px,0); box-shadow:var(--shadow)}
+    .btn:active{transform:translate3d(0,0,0) scale(.98)}
+    .btn--gold{
+      border-color:var(--goldBorder);
+      background:linear-gradient(135deg, rgba(212,175,55,.22), rgba(212,175,55,.07));
+      color: color-mix(in oklab, var(--ink) 55%, var(--gold));
+    }
+    .btn--ghost{background:transparent}
+
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      min-height:var(--tap);
+      padding:10px 14px;
+      border-radius:var(--pill);
+      border:1px solid var(--goldBorder);
+      background:var(--goldSoft);
+      color: color-mix(in oklab, var(--ink) 55%, var(--gold));
+      font-weight:900;
+      font-size:var(--sm);
+      white-space:nowrap;
+    }
+    .dot{
+      width:10px;height:10px;border-radius:999px;
+      background:linear-gradient(135deg,var(--gold),var(--gold2));
+      box-shadow:0 0 0 5px rgba(212,175,55,.16);
+    }
+
+    .hero{padding:18px 0 10px}
+    .grid{
+      display:grid; gap:14px;
+      grid-template-columns:1fr;
+    }
+
+    .card{
+      border:1px solid var(--line);
+      background:var(--card);
+      border-radius:var(--r24);       /* Mobile-first: 24px */
+      padding:16px;
+      box-shadow:var(--shadow2);
+      overflow:hidden;
+    }
+    .card--hero{box-shadow:var(--shadow)}
+    .h1{font-size:var(--h1); margin:8px 0 8px; letter-spacing:-.7px; line-height:1.12; font-weight:950}
+    .h2{font-size:var(--h2); margin:0; letter-spacing:-.3px; font-weight:950}
+    .h3{font-size:var(--h3); margin:0; font-weight:900}
+    .p{font-size:var(--p); margin:0; color:var(--muted)}
+    .lead{font-size:var(--p); margin:0; color:var(--muted); max-width:70ch}
+
+    .stats{
+      display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:12px;
+    }
+    .stat{
+      border:1px solid var(--line);
+      border-radius:20px;
+      background:var(--glass);
+      padding:12px;
+      min-height:84px;
+      box-shadow:var(--shadow2);
+    }
+    .stat b{display:block; font-weight:950}
+    .stat span{display:block; color:var(--muted); font-size:var(--sm)}
+
+    .section{padding:10px 0 24px}
+    .sectionHead{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
+      margin:8px 0 12px;
+    }
+
+    .list{
+      display:grid; gap:12px;
+    }
+    .step{
+      display:flex; gap:12px; align-items:flex-start;
+      padding:14px;
+      border:1px solid var(--line);
+      border-radius:22px;
+      background:var(--glass);
+      box-shadow:var(--shadow2);
+    }
+    .num{
+      flex:0 0 auto;
+      width:44px; height:44px; border-radius:16px;
+      display:grid; place-items:center;
+      border:1px solid var(--goldBorder);
+      background:linear-gradient(135deg, rgba(212,175,55,.24), rgba(212,175,55,.06));
+      font-weight:950;
+      color:var(--gold);
+    }
+    .step p{margin:4px 0 0; color:var(--muted); font-size:var(--p)}
+
+    .sites{
+      display:grid; gap:12px;
+      grid-template-columns:1fr;
+    }
+    .site{
+      border:1px solid var(--line);
+      border-radius:var(--r24);
+      background:var(--glass);
+      box-shadow:var(--shadow2);
+      padding:14px;
+      display:flex; flex-direction:column; gap:10px;
+    }
+    .row{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .meta{
+      display:flex; gap:10px; align-items:center;
+    }
+    .ico{
+      width:44px; height:44px; border-radius:16px;
+      display:grid; place-items:center;
+      border:1px solid var(--goldBorder);
+      background:var(--goldSoft);
+      font-size:20px;
+    }
+    .k{font-size:var(--sm); color:var(--muted)}
+    .warn{
+      border:1px dashed var(--goldBorder);
+      background:linear-gradient(135deg, rgba(212,175,55,.12), transparent);
+      border-radius:22px;
+      padding:12px 14px;
+      color: color-mix(in oklab, var(--muted) 60%, var(--ink));
+      font-size:var(--p);
+    }
+
+    .footer{
+      border-top:1px solid var(--line);
+      background:var(--glass);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding:18px 0;
+      margin-top:18px;
+    }
+    .footGrid{display:grid; gap:12px}
+
+    /* Bottom sheet (mobile menu) */
+    .hamburger{
+      width:var(--tap); height:var(--tap);
+      border-radius:var(--pill);
+      border:1px solid var(--line);
+      background:var(--glass);
+      box-shadow:var(--shadow2);
+      display:grid; place-items:center;
+    }
+    .hamburger span{
+      width:18px; height:2px; background:var(--ink);
+      border-radius:999px; display:block; position:relative;
+    }
+    .hamburger span::before,.hamburger span::after{
+      content:""; position:absolute; left:0; right:0;
+      height:2px; background:var(--ink); border-radius:999px;
+    }
+    .hamburger span::before{top:-6px}
+    .hamburger span::after{top:6px}
+
+    .sheetBackdrop{
+      position:fixed; inset:0; z-index:90;
+      background:rgba(0,0,0,.45);
+      opacity:0; pointer-events:none;
+      transition:opacity var(--t) var(--ease);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+    .sheet{
+      position:fixed; left:0; right:0; bottom:0; z-index:100;
+      transform:translate3d(0,110%,0);
+      transition:transform 320ms var(--ease);
+      padding:12px 12px calc(16px + env(safe-area-inset-bottom));
+    }
+    .sheetCard{
+      border-radius:28px;
+      border:1px solid var(--line);
+      background:var(--card);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .handle{width:60px; height:6px; border-radius:999px; background:rgba(0,0,0,.18); margin:10px auto}
+    .sheetHead{
+      padding:12px 14px;
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      border-bottom:1px solid var(--line);
+    }
+    .sheetBody{padding:12px 12px 14px; display:grid; gap:10px; max-height:60vh; overflow:auto}
+    .sheetLink{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      min-height:var(--tap);
+      padding:12px 12px;
+      border-radius:20px;
+      border:1px solid var(--line);
+      background:var(--glass);
+      box-shadow:var(--shadow2);
+    }
+    .chev{opacity:.55; font-weight:900}
+
+    body.sheetOpen{overflow:hidden}
+    body.sheetOpen .sheetBackdrop{opacity:1; pointer-events:auto}
+    body.sheetOpen .sheet{transform:translate3d(0,0,0)}
+
+    /* Desktop enhancements (min-width queries per your rule) */
+    @media (min-width: 820px){
+      .grid{grid-template-columns: 1.35fr .65fr}
+      .sites{grid-template-columns: repeat(2,1fr)}
+      .footGrid{grid-template-columns: 1fr 1fr; align-items:center}
+      .hamburger{display:none}
+    }
+    @media (min-width: 1100px){
+      .sites{grid-template-columns: repeat(4,1fr)}
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none !important; animation:none !important}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAV -->
+  <header class="nav">
+    <div class="wrap nav__in">
+      <a class="brand" href="#top">
+        <span class="mark">G</span>
+        <span>
+          <b>دليل الخدمة فالخارج</b>
+          <span>روابط رسمية + خطوات التسجيل</span>
+        </span>
+      </a>
+
+      <div class="nav__actions">
+        <a class="btn btn--gold" href="#sites">روابط المواقع</a>
+        <a class="btn btn--ghost" href="#how">كيفاش نسجّل</a>
+        <button class="hamburger" id="openSheet" aria-label="فتح القائمة" aria-controls="sheet" aria-expanded="false">
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main id="top" class="hero">
+    <div class="wrap grid">
+      <section class="card card--hero">
+        <span class="chip"><span class="dot"></span> دليل عملي وآمن</span>
+        <h1 class="h1">كيفاش تلقى فرص خدمة فـ الخارج بطريقة قانونية؟</h1>
+        <p class="lead">
+          هاد الصفحة كتشرح النوع ديال المواقع اللي كيساعدوك تدير <b>بحث على عمل</b> ولا <b>إجراءات رسمية</b>،
+          وكتعطيك خطوات التسجيل + روابط رسمية (ألمانيا/أوروبا/كندا/بريطانيا).
+        </p>
+
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px">
+          <a class="btn btn--gold" href="#how">📌 خطوات التسجيل</a>
+          <a class="btn" href="#sites">🌍 مواقع رسمية</a>
+          <button class="btn btn--ghost" id="copyMySite" style="min-width: var(--tap);">نسخ رابط موقعي</button>
+        </div>
+
+        <div class="stats" role="list" aria-label="ملخص سريع">
+          <div class="stat" role="listitem"><b>آمن</b><span>روابط رسمية/معروفة</span></div>
+          <div class="stat" role="listitem"><b>موبايل</b><span>أزرار 44px+</span></div>
+          <div class="stat" role="listitem"><b>سريع</b><span>صفحة واحدة</span></div>
+        </div>
+
+        <div class="warn" style="margin-top:12px">
+          ⚠️ انتبه: أي واحد كيوعدك بـ “فيزا مضمونة” أو “خدمة مقابل فلوس” غالباً نصب.
+          دير التقديم غير من بوابات رسمية أو شركات توظيف معروفة.
+        </div>
+      </section>
+
+      <aside class="card">
+        <h2 class="h2">ضع رابط موقعك هنا</h2>
+        <p class="p">بدّل القيمة فـ الكود: <b>MY_SITE_URL</b> باش زر “نسخ رابط موقعي” ينسخو مباشرة.</p>
+
+        <div class="warn" style="margin-top:12px">
+          ✅ نصيحة: إذا باغي تربح من الزيارات، خدم صفحات بحال هادي (Guides) + Tools مجانية.
+        </div>
+
+        <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn btn--gold" href="#sites">ابدأ بالمواقع</a>
+          <a class="btn" href="#tips">نصائح مهمة</a>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- HOW TO REGISTER -->
+  <section id="how" class="section">
+    <div class="wrap">
+      <div class="sectionHead">
+        <div>
+          <h2 class="h2">كيفاش تسجّل (الطريقة العامة)</h2>
+          <p class="p">هاد الخطوات كتصلح لمعظم مواقع التوظيف الرسمية.</p>
+        </div>
+        <a class="btn btn--ghost" href="#sites">انتقل للروابط</a>
+      </div>
+
+      <div class="list">
+        <div class="step">
+          <div class="num">1</div>
+          <div>
+            <b class="h3">اختار الموقع الرسمي المناسب</b>
+            <p>مثلاً: أوروبا (EURES)، ألمانيا (Make it in Germany)، كندا (Express Entry)…</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="num">2</div>
+          <div>
+            <b class="h3">دير حساب (Email + كلمة سر قوية)</b>
+            <p>استعمل Email ديالك الحقيقي، وخلي كلمة السر طويلة وفريدة.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="num">3</div>
+          <div>
+            <b class="h3">كمّل البروفايل (CV + Skills)</b>
+            <p>حط خبراتك، الدبلومات، اللغات، والمدينة اللي كتقدر تمشي ليها.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="num">4</div>
+          <div>
+            <b class="h3">قلب على فرص (Filters) وقدم</b>
+            <p>خدم الفلاتر: البلد، المجال، العقد، اللغة… ومن بعد Apply.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="num">5</div>
+          <div>
+            <b class="h3">حضر الوثائق</b>
+            <p>جواز السفر، CV، شهادات، إثباتات… حسب البلد والبرنامج.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAFE SITES -->
+  <section id="sites" class="section">
+    <div class="wrap">
+      <div class="sectionHead">
+        <div>
+          <h2 class="h2">مواقع رسمية وآمنة للتقديم</h2>
+          <p class="p">روابط موثوقة (حكومية/أوروبية) + زر فتح + زر نسخ.</p>
+        </div>
+      </div>
+
+      <div class="sites">
+        <!-- Germany -->
+        <article class="site">
+          <div class="row">
+            <div class="meta">
+              <div class="ico">🇩🇪</div>
+              <div>
+                <b class="h3">Make it in Germany</b>
+                <div class="k">بوابة الحكومة الألمانية للعمال المهرة</div>
+              </div>
+            </div>
+            <span class="chip">ألمانيا</span>
+          </div>
+          <div class="row">
+            <button class="btn btn--gold" data-open="https://www.make-it-in-germany.com/">فتح</button>
+            <button class="btn" data-copy="https://www.make-it-in-germany.com/">نسخ</button>
+          </div>
+        </article>
+
+        <!-- EURES -->
+        <article class="site">
+          <div class="row">
+            <div class="meta">
+              <div class="ico">🇪🇺</div>
+              <div>
+                <b class="h3">EURES</b>
+                <div class="k">بوابة الاتحاد الأوروبي للتوظيف</div>
+              </div>
+            </div>
+            <span class="chip">أوروبا</span>
+          </div>
+          <div class="row">
+            <button class="btn btn--gold" data-open="https://eures.europa.eu/index_en">فتح</button>
+            <button class="btn" data-copy="https://eures.europa.eu/index_en">نسخ</button>
+          </div>
+        </article>
+
+        <!-- Canada Express Entry -->
+        <article class="site">
+          <div class="row">
+            <div class="meta">
+              <div class="ico">🇨🇦</div>
+              <div>
+                <b class="h3">Canada — Express Entry</b>
+                <div class="k">نظام رسمي للهجرة/العمل للمهارات</div>
+              </div>
+            </div>
+            <span class="chip">كندا</span>
+          </div>
+          <div class="row">
+            <button class="btn btn--gold" data-open="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry.html">فتح</button>
+            <button class="btn" data-copy="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry.html">نسخ</button>
+          </div>
+        </article>
+
+        <!-- UK Visas -->
+        <article class="site">
+          <div class="row">
+            <div class="meta">
+              <div class="ico">🇬🇧</div>
+              <div>
+                <b class="h3">UK Visas & Immigration</b>
+                <div class="k">الموقع الرسمي للتأشيرات والهجرة</div>
+              </div>
+            </div>
+            <span class="chip">بريطانيا</span>
+          </div>
+          <div class="row">
+            <button class="btn btn--gold" data-open="https://www.gov.uk/browse/visas-immigration">فتح</button>
+            <button class="btn" data-copy="https://www.gov.uk/browse/visas-immigration">نسخ</button>
+          </div>
+        </article>
+      </div>
+
+      <div id="tips" class="warn" style="margin-top:14px">
+        ✅ نصيحة مهمة: إذا أي موقع ولا وسيط طلب “فلوس مقابل عقد/فيزا” أو قال لك “بدون ما تخدم” راه خطر.
+        خدم دائماً مع منصات رسمية أو شركات توظيف قانونية.
+      </div>
+    </div>
+  </section>
+
+  <!-- YOUR SITE SECTION -->
+  <section class="section" id="mySite">
+    <div class="wrap">
+      <div class="card">
+        <h2 class="h2">رابط موقعك (باش تحطو فهاد المقال)</h2>
+        <p class="p">بدّل الرابط فـ JS: <b>MY_SITE_URL</b> — ومن بعد المستخدم يقدر ينسخو بزر واحد.</p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px">
+          <button class="btn btn--gold" id="openMySite">فتح موقعي</button>
+          <button class="btn" id="copyMySite2">نسخ الرابط</button>
+        </div>
+        <p class="p" id="mySitePreview" style="margin-top:10px"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap footGrid">
+      <div style="display:flex; gap:10px; align-items:center">
+        <span class="mark">G</span>
+        <div>
+          <b>مقالة توجيهية</b>
+          <div class="k">© <span id="year"></span> — روابط رسمية فقط</div>
+        </div>
+      </div>
+
+      <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end">
+        <a class="btn btn--ghost" href="#top">فوق</a>
+        <a class="btn btn--ghost" href="#how">الخطوات</a>
+        <a class="btn btn--ghost" href="#sites">الروابط</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bottom Sheet -->
+  <div class="sheetBackdrop" id="sheetBackdrop" aria-hidden="true"></div>
+  <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="القائمة السفلية">
+    <div class="sheetCard">
+      <div class="handle"></div>
+      <div class="sheetHead">
+        <b>القائمة</b>
+        <button class="btn btn--ghost" id="closeSheet" style="min-width:var(--tap)">إغلاق</button>
+      </div>
+      <div class="sheetBody">
+        <a class="sheetLink" href="#how">كيفاش نسجّل <span class="chev">‹</span></a>
+        <a class="sheetLink" href="#sites">روابط المواقع <span class="chev">‹</span></a>
+        <a class="sheetLink" href="#mySite">رابط موقعي <span class="chev">‹</span></a>
+        <a class="sheetLink" href="#tips">نصائح الأمان <span class="chev">‹</span></a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ====== ضع رابط موقعك هنا ======
+    const MY_SITE_URL = "https://your-site.com"; // <-- بدّلها بالرابط ديالك
+
+    // Elements
+    const yearEl = document.getElementById("year");
+    const mySitePreview = document.getElementById("mySitePreview");
+    const openMySite = document.getElementById("openMySite");
+    const copyMySite = document.getElementById("copyMySite");
+    const copyMySite2 = document.getElementById("copyMySite2");
+
+    // Bottom Sheet
+    const openSheetBtn = document.getElementById("openSheet");
+    const closeSheetBtn = document.getElementById("closeSheet");
+    const sheet = document.getElementById("sheet");
+    const sheetBackdrop = document.getElementById("sheetBackdrop");
+
+    // Year
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    // Preview my site
+    if (mySitePreview) mySitePreview.textContent = "الرابط الحالي: " + MY_SITE_URL;
+
+    function toast(msg){
+      const t = document.createElement("div");
+      t.textContent = msg;
+      t.style.cssText = `
+        position:fixed; left:12px; right:12px; bottom:14px;
+        z-index:9999; padding:12px 14px;
+        border-radius:18px;
+        border:1px solid rgba(212,175,55,.35);
+        background: rgba(0,0,0,.70);
+        color:#fff; text-align:center;
+        backdrop-filter: blur(10px);
+        transform: translate3d(0, 12px, 0);
+        opacity:0;
+        transition: all 220ms cubic-bezier(.2,.9,.35,1);
+      `;
+      document.body.appendChild(t);
+      requestAnimationFrame(() => {
+        t.style.opacity = "1";
+        t.style.transform = "translate3d(0,0,0)";
+      });
+      setTimeout(() => {
+        t.style.opacity = "0";
+        t.style.transform = "translate3d(0, 12px, 0)";
+        setTimeout(() => t.remove(), 260);
+      }, 1400);
+    }
+
+    async function copyText(text){
+      try{
+        await navigator.clipboard.writeText(text);
+        toast("✅ تم النسخ");
+      }catch{
+        // fallback
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        ta.remove();
+        toast("✅ تم النسخ");
+      }
+    }
+
+    // My site buttons
+    if (openMySite) openMySite.addEventListener("click", () => window.open(MY_SITE_URL, "_blank", "noopener"));
+    if (copyMySite) copyMySite.addEventListener("click", () => copyText(MY_SITE_URL));
+    if (copyMySite2) copyMySite2.addEventListener("click", () => copyText(MY_SITE_URL));
+
+    // Open / Copy buttons for official sites
+    document.querySelectorAll("[data-open]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const url = btn.getAttribute("data-open");
+        if (url) window.open(url, "_blank", "noopener");
+      });
+    });
+    document.querySelectorAll("[data-copy]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const url = btn.getAttribute("data-copy");
+        if (url) copyText(url);
+      });
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener("click", (e) => {
+        const id = a.getAttribute("href");
+        if(!id || id === "#") return;
+        const el = document.querySelector(id);
+        if(el){
+          e.preventDefault();
+          el.scrollIntoView({behavior:"smooth", block:"start"});
+          closeSheet();
+        }
+      });
+    });
+
+    // Bottom sheet handlers
+    function openSheet(){
+      document.body.classList.add("sheetOpen");
+      openSheetBtn?.setAttribute("aria-expanded","true");
+    }
+    function closeSheet(){
+      document.body.classList.remove("sheetOpen");
+      openSheetBtn?.setAttribute("aria-expanded","false");
+    }
+    openSheetBtn?.addEventListener("click", openSheet);
+    closeSheetBtn?.addEventListener("click", closeSheet);
+    sheetBackdrop?.addEventListener("click", closeSheet);
+    document.addEventListener("keydown", (e) => {
+      if(e.key === "Escape") closeSheet();
+    });
+  </script>
+</body>
+</html>

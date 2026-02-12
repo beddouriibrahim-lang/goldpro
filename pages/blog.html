@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Blog — GoldenTools</title>
+<style>
+
+:root{
+  --bg:#ffffff; --bg2:#fafafa;
+  --txt:#121212; --muted:#6b7280;
+  --line:rgba(17,17,17,.10);
+  --gold:#d4af37; --gold2:#caa12a;
+  --shadow:0 14px 40px rgba(17,17,17,.08);
+  --shadow2:0 10px 24px rgba(17,17,17,.06);
+  --r:18px; --r2:22px;
+  --max:1100px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color:var(--txt);
+  background:
+    radial-gradient(900px 500px at 10% -10%, rgba(212,175,55,.20), transparent 60%),
+    radial-gradient(700px 400px at 90% 0%, rgba(212,175,55,.12), transparent 55%),
+    linear-gradient(var(--bg), var(--bg));
+}
+a{color:inherit;text-decoration:none}
+.container{width:min(var(--max),92vw);margin:0 auto}
+
+.topbar{
+  position:sticky; top:0; z-index:20;
+  background:rgba(255,255,255,.72);
+  backdrop-filter: blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.topbar__inner{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:10px 0; gap:12px;
+}
+.dot{
+  width:10px;height:10px;border-radius:999px;display:inline-block;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  box-shadow:0 0 0 4px rgba(212,175,55,.15);
+}
+.muted{color:var(--muted);font-size:13px;line-height:1.55}
+.toplinks{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+.toplink{
+  font-size:13px;color:var(--muted);
+  padding:8px 10px;border-radius:999px;
+}
+.toplink:hover{background:rgba(212,175,55,.12);color:var(--txt)}
+
+.nav{
+  border-bottom:1px solid var(--line);
+  background:rgba(255,255,255,.70);
+  backdrop-filter: blur(10px);
+}
+.nav__inner{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 0; gap:12px;
+}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900}
+.brand__mark{
+  width:38px;height:38px;border-radius:14px;
+  display:grid;place-items:center;
+  border:1px solid rgba(212,175,55,.35);
+  background:linear-gradient(135deg,rgba(212,175,55,.22),rgba(212,175,55,.05));
+  box-shadow:var(--shadow2);
+}
+.nav__cta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+
+.status{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 10px;border-radius:999px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.85);
+  color:var(--muted); font-size:12px;
+}
+.status__dot{
+  width:10px;height:10px;border-radius:999px;
+  background:#f59e0b;
+  box-shadow:0 0 0 4px rgba(245,158,11,.15);
+}
+.status.is-online .status__dot{
+  background:#22c55e;
+  box-shadow:0 0 0 4px rgba(34,197,94,.15);
+}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:10px 14px;border-radius:999px;
+  font-weight:900;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.88);
+  box-shadow:var(--shadow2);
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+  user-select:none;
+}
+.btn:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+.btn--gold{
+  border-color: rgba(212,175,55,.55);
+  background: linear-gradient(135deg, rgba(212,175,55,.22), rgba(212,175,55,.06));
+}
+.btn--ghost{background:rgba(255,255,255,.70)}
+.btn[aria-disabled="true"], .btn.is-disabled{opacity:.55;pointer-events:none}
+
+.card{
+  border:1px solid var(--line);
+  border-radius:var(--r2);
+  background:rgba(255,255,255,.90);
+  box-shadow:var(--shadow2);
+  padding:16px;
+}
+.card--hero{
+  background:rgba(255,255,255,.88);
+  box-shadow:var(--shadow);
+}
+.pill{
+  display:inline-flex;gap:10px;align-items:center;
+  padding:8px 12px;border-radius:999px;
+  border:1px solid rgba(212,175,55,.35);
+  background:rgba(212,175,55,.12);
+  color:#7a5f09;
+  font-weight:900;font-size:12px;
+}
+.h1{
+  margin:12px 0 8px;
+  font-size:32px;
+  line-height:1.1;
+  letter-spacing:-.7px;
+}
+.h2{margin:0;font-size:18px;letter-spacing:-.2px}
+.sub{margin:0;color:var(--muted);font-size:15px;line-height:1.55}
+
+.section{padding:22px 0}
+.sectionHead{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:12px}
+
+.grid{display:grid;grid-template-columns:1fr;gap:12px}
+.grid2{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:900px){
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .grid2{grid-template-columns:1.25fr .75fr}
+}
+
+.icon{
+  width:42px;height:42px;border-radius:16px;
+  border:1px solid rgba(212,175,55,.35);
+  background:linear-gradient(135deg,rgba(212,175,55,.20),rgba(212,175,55,.04));
+  display:grid;place-items:center;
+  box-shadow:var(--shadow2);
+  font-size:20px;
+}
+.badge{
+  font-size:12px;font-weight:900;
+  padding:6px 10px;border-radius:999px;
+  border:1px solid rgba(212,175,55,.35);
+  background:rgba(212,175,55,.10);
+  color:#7a5f09;
+  white-space:nowrap;
+}
+.cardTop{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.card h3{margin:12px 0 6px;font-size:17px}
+.card p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}
+.cardActions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+
+.form{display:grid;gap:10px;margin-top:12px}
+.input,.select,.textarea{
+  width:100%;
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:12px 12px;
+  font-size:14px;
+  outline:none;
+  background:rgba(250,250,250,.95);
+}
+.textarea{min-height:120px;resize:vertical}
+.notice{
+  margin-top:10px;
+  padding:10px 12px;
+  border:1px dashed rgba(212,175,55,.55);
+  border-radius:16px;
+  background:rgba(212,175,55,.08);
+  color:#7a5f09;
+  font-size:13px;
+  line-height:1.5;
+}
+
+.footer{
+  border-top:1px solid var(--line);
+  background:rgba(255,255,255,.72);
+  backdrop-filter: blur(10px);
+  padding:18px 0;
+  margin-top:22px;
+}
+.footerGrid{display:grid;gap:10px}
+@media(min-width:900px){.footerGrid{grid-template-columns:1fr 1fr;align-items:center}}
+
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container topbar__inner">
+    <div style="display:flex;align-items:center;gap:10px">
+      <span class="dot"></span>
+      <span class="muted">Blog (SEO pages)</span>
+    </div>
+    <div class="toplinks">
+      <a class="toplink" href="../index.html">Home</a><a class="toplink" href="../tools/generator.html">Tools</a><a class="toplink" href="contact.html">Contact</a>
+    </div>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="container nav__inner">
+    <a class="brand" href="../index.html">
+      <span class="brand__mark">G</span><span>GoldenTools</span>
+    </a>
+
+    <div class="nav__cta">
+      <span class="status" id="apiStatus">
+        <span class="status__dot"></span>
+        <span class="status__text">Server tools: Offline (site works)</span>
+      </span>
+      <a class="btn btn--ghost" href="../index.html">Home</a>
+      <a class="btn btn--gold" href="../tools/generator.html">Start Free</a>
+    </div>
+  </div>
+</header>
+
+
+<main class="section">
+  <div class="container">
+    <section class="card card--hero">
+      <h2 class="h2">Blog</h2>
+      <p class="muted">SEO posts to help you rank on Google.</p>
+      <div class="notice">Add real posts later.</div>
+    </section>
+  </div>
+</main>
+
+
+<footer class="footer">
+  <div class="container footerGrid">
+    <div style="display:flex;gap:10px;align-items:center">
+      <span class="brand__mark" style="width:34px;height:34px">G</span>
+      <div><b>GoldenTools</b><br><small class="muted">White & Gold • Mobile-first</small></div>
+    </div>
+    <div><small class="muted">© <span id="year">2026</span> GoldenTools</small></div>
+  </div>
+</footer>
+
+<script>
+
+// ===== GoldenTools shared JS (per-page embedded) =====
+const API_BASE = '';
+
+async function checkApi() {
+  if (!API_BASE) return false;
+  try {
+    const r = await fetch(API_BASE + "/health", { cache: "no-store" });
+    if (!r.ok) return false;
+    const data = await r.json();
+    return data && data.ok === true;
+  } catch {
+    return false;
+  }
+}
+
+function setStatus(online) {
+  const s = document.getElementById("apiStatus");
+  if (!s) return;
+  if (online) {
+    s.classList.add("is-online");
+    s.querySelector(".status__text").textContent = "Server tools: Online";
+  } else {
+    s.classList.remove("is-online");
+    s.querySelector(".status__text").textContent = "Server tools: Offline (site works)";
+  }
+}
+
+function disableServerButtons(online) {
+  document.querySelectorAll('[data-requires-server="true"]').forEach(el => {
+    if (online) {
+      el.classList.remove("is-disabled");
+      el.setAttribute("aria-disabled", "false");
+      el.title = "";
+    } else {
+      el.classList.add("is-disabled");
+      el.setAttribute("aria-disabled", "true");
+      el.title = "This feature needs the server. Try later.";
+    }
+  });
+  document.querySelectorAll("[data-offline-banner]").forEach(b => {
+    b.style.display = online ? "none" : "block";
+  });
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const online = await checkApi();
+  setStatus(online);
+  disableServerButtons(online);
+  const y = document.getElementById("year");
+  if (y) y.textContent = new Date().getFullYear();
+});
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,938 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#D4AF37" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="description" content="دليل عملي ومقنع لطريقة طلب فيزا أمريكا (B-2) لحضور مباراة كأس العالم: خطوات، Checklist، FAQ وروابط رسمية فقط." />
+  <title>فيزا أمريكا لحضور كأس العالم — دليل عملي (B-2)</title>
+
+  <style>
+    :root{
+      --bg:#ffffff; --bg2:#fafafa;
+      --ink:#0b0b10; --muted:#64748b;
+      --line:rgba(10,10,14,.10);
+      --gold:#D4AF37; --gold2:#C89B1A; --gold3:#F2D37B;
+      --glass:rgba(255,255,255,.72);
+      --card:rgba(255,255,255,.92);
+      --shadow: 0 16px 46px rgba(0,0,0,.11);
+      --shadow2: 0 10px 26px rgba(0,0,0,.07);
+      --tap: 48px;
+      --rMobile: 24px;
+      --r: 20px;
+      --pill: 999px;
+      --max: 1180px;
+      --ease: cubic-bezier(.19,.9,.38,1);
+      --t: 180ms;
+      --t2: 320ms;
+
+      /* fluid typography 390 -> 1440 */
+      --h1: clamp(30px, 5.4vw, 56px);
+      --h2: clamp(20px, 3.1vw, 32px);
+      --h3: clamp(16px, 2.2vw, 20px);
+      --p:  clamp(15px, 1.8vw, 17px);
+      --sm: clamp(13px, 1.5vw, 14px);
+      --xs: clamp(12px, 1.35vw, 13px);
+    }
+
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#0a0a0e; --bg2:#121216;
+        --ink:#f7f7fb; --muted:#a0aec0;
+        --line:rgba(255,255,255,.12);
+        --glass:rgba(18,18,22,.70);
+        --card:rgba(18,18,22,.88);
+        --shadow: 0 18px 55px rgba(0,0,0,.40);
+        --shadow2: 0 12px 30px rgba(0,0,0,.32);
+      }
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(900px 520px at 15% -12%, rgba(212,175,55,.24), transparent 65%),
+        radial-gradient(700px 420px at 88% -10%, rgba(212,175,55,.14), transparent 58%),
+        linear-gradient(to bottom, var(--bg), var(--bg2));
+      overflow-x:hidden;
+      line-height:1.65;
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{width:min(var(--max), 94vw); margin-inline:auto}
+    .sr{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden}
+
+    /* focus */
+    :where(a,button,input,textarea,select,[tabindex]):focus-visible{
+      outline: 3px solid var(--gold);
+      outline-offset: 3px;
+      border-radius: 14px;
+    }
+
+    /* Glass nav */
+    .nav{
+      position:sticky; top:0; z-index:50;
+      background: rgba(255,255,255,.62);
+      border-bottom:1px solid var(--line);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+    @media (prefers-color-scheme: dark){
+      .nav{ background: rgba(18,18,22,.62); }
+    }
+    .navIn{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      padding: 12px 0;
+      min-height: 56px;
+    }
+    .brand{display:flex; align-items:center; gap:12px; min-height: var(--tap)}
+    .mark{
+      width:46px; height:46px; border-radius:18px;
+      display:grid; place-items:center;
+      border:1px solid rgba(212,175,55,.35);
+      background: linear-gradient(135deg, rgba(212,175,55,.22), rgba(212,175,55,.06));
+      box-shadow: var(--shadow2);
+      font-weight: 950;
+      color: var(--gold);
+      position:relative;
+      overflow:hidden;
+    }
+    .mark::after{
+      content:"";
+      position:absolute; inset:-60%;
+      background: radial-gradient(circle at 30% 25%, rgba(242,211,123,.55), transparent 60%);
+      filter: blur(14px);
+      opacity:.8;
+      transform: translate3d(-10px,-8px,0);
+      animation: floaty 7s var(--ease) infinite;
+      pointer-events:none;
+    }
+    @keyframes floaty{
+      0%,100%{transform: translate3d(-10px,-8px,0) rotate(0deg)}
+      50%{transform: translate3d(8px,10px,0) rotate(120deg)}
+    }
+    .btxt{display:flex; flex-direction:column; line-height:1.15}
+    .btxt b{font-size:15px; letter-spacing:.2px}
+    .btxt span{font-size:var(--sm); color:var(--muted)}
+    .navActions{display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+
+    .btn{
+      min-height: var(--tap);
+      min-width: 44px;
+      padding: 12px 16px;
+      border-radius: var(--pill);
+      border: 1px solid var(--line);
+      background: var(--glass);
+      box-shadow: var(--shadow2);
+      font-weight: 900;
+      font-size: var(--sm);
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      transition: transform var(--t) var(--ease), box-shadow var(--t) var(--ease), background var(--t) var(--ease);
+      user-select:none;
+      -webkit-tap-highlight-color: transparent;
+      will-change: transform;
+    }
+    .btn:hover{ transform: translate3d(0,-2px,0); box-shadow: var(--shadow); }
+    .btn:active{ transform: translate3d(0,0,0) scale(.98); }
+    .btnGold{
+      border-color: rgba(212,175,55,.5);
+      background: linear-gradient(135deg, rgba(212,175,55,.22), rgba(242,211,123,.12));
+      color: color-mix(in oklab, var(--ink) 60%, var(--gold2));
+    }
+    .btnIcon{
+      width: var(--tap);
+      padding:0;
+      font-size: 16px;
+    }
+
+    .chip{
+      min-height: 40px;
+      padding: 10px 14px;
+      border-radius: var(--pill);
+      border: 1px solid rgba(212,175,55,.35);
+      background: rgba(212,175,55,.12);
+      color: color-mix(in oklab, var(--ink) 55%, var(--gold2));
+      font-size: var(--sm);
+      font-weight: 950;
+      display:inline-flex; gap:10px; align-items:center;
+      white-space:nowrap;
+    }
+    .dot{width:10px;height:10px;border-radius:50%; background:linear-gradient(135deg,var(--gold),var(--gold3)); box-shadow:0 0 0 5px rgba(212,175,55,.18)}
+
+    /* Layout */
+    .hero{padding: 18px 0 10px}
+    .grid{display:grid; gap:14px}
+    .heroGrid{grid-template-columns: 1fr}
+    .cols{display:grid; gap:14px; grid-template-columns: 1fr}
+    @media (min-width: 860px){
+      .heroGrid{grid-template-columns: 1.35fr .65fr}
+    }
+    @media (min-width: 980px){
+      .cols{grid-template-columns: 1.1fr .9fr}
+    }
+
+    .card{
+      border: 1px solid var(--line);
+      background: var(--card);
+      border-radius: var(--rMobile);
+      padding: 18px;
+      box-shadow: var(--shadow2);
+      position:relative;
+      overflow:hidden;
+      transition: transform var(--t2) var(--ease), box-shadow var(--t2) var(--ease);
+    }
+    .card:hover{ transform: translate3d(0,-3px,0); box-shadow: var(--shadow); }
+
+    .h1{ font-size: var(--h1); line-height:1.08; margin: 12px 0 10px; letter-spacing:-.8px; font-weight: 980; }
+    .h2{ font-size: var(--h2); margin:0; letter-spacing:-.4px; font-weight: 980; }
+    .h3{ font-size: var(--h3); margin:0; font-weight: 950; }
+    .p{ font-size: var(--p); color: var(--muted); margin:0; }
+
+    .kpi{display:grid; grid-template-columns: repeat(3, 1fr); gap:10px; margin-top: 14px}
+    .mini{
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.60);
+      border-radius: 18px;
+      padding: 12px;
+      min-height: 82px;
+      box-shadow: var(--shadow2);
+    }
+    @media (prefers-color-scheme: dark){
+      .mini{ background: rgba(18,18,22,.65); }
+    }
+    .mini b{font-size:14px}
+    .mini span{display:block; margin-top:4px; font-size: var(--xs); color: var(--muted); font-weight: 700}
+
+    .section{padding: 10px 0 22px}
+    .head{display:flex; align-items:flex-end; justify-content:space-between; gap:12px; margin: 8px 0 12px;}
+
+    .list{display:grid; gap:10px; margin-top: 12px;}
+    .step{
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.65);
+      border-radius: 20px;
+      padding: 14px;
+      box-shadow: var(--shadow2);
+      display:flex; gap:12px; align-items:flex-start;
+      transition: transform var(--t) var(--ease);
+      will-change: transform;
+    }
+    @media (prefers-color-scheme: dark){
+      .step{ background: rgba(18,18,22,.65); }
+    }
+    .step:hover{ transform: translate3d(0,-2px,0); }
+    .num{
+      width:44px; height:44px; border-radius: 16px;
+      display:grid; place-items:center;
+      border: 1px solid rgba(212,175,55,.35);
+      background: rgba(212,175,55,.14);
+      font-weight: 980;
+      color: color-mix(in oklab, var(--ink) 55%, var(--gold2));
+      flex: 0 0 44px;
+    }
+    .txt b{display:block; font-weight: 980}
+    .txt p{margin-top: 4px; font-size: var(--sm); color: var(--muted)}
+
+    .callouts{display:grid; gap:10px; margin-top: 12px}
+    .callout{
+      border: 1px dashed rgba(212,175,55,.45);
+      background: rgba(212,175,55,.10);
+      border-radius: 20px;
+      padding: 14px;
+      color: color-mix(in oklab, var(--ink) 70%, var(--gold2));
+      font-size: var(--sm);
+      font-weight: 850;
+      line-height:1.7;
+    }
+
+    /* Planner */
+    .planner{display:grid; gap:10px; margin-top: 12px}
+    .field{
+      display:grid; gap:8px;
+    }
+    .label{font-size: var(--sm); color: var(--muted); font-weight: 900}
+    .input{
+      min-height: var(--tap);
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.70);
+      color: var(--ink);
+      padding: 12px 14px;
+      font-size: var(--p);
+      box-shadow: var(--shadow2);
+    }
+    @media (prefers-color-scheme: dark){
+      .input{ background: rgba(18,18,22,.70); }
+    }
+    .row2{display:grid; gap:10px; grid-template-columns: 1fr}
+    @media (min-width: 720px){
+      .row2{grid-template-columns: 1fr 1fr}
+    }
+    .calcBox{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.65);
+      border-radius: 20px;
+      padding: 14px;
+      box-shadow: var(--shadow2);
+      display:flex; justify-content:space-between; gap:10px; align-items:center;
+    }
+    @media (prefers-color-scheme: dark){
+      .calcBox{ background: rgba(18,18,22,.65); }
+    }
+    .calcBox b{font-weight: 980}
+    .calcBox span{color: var(--muted); font-weight: 900}
+
+    /* Official links */
+    .links{display:grid; gap:10px; margin-top: 12px;}
+    .linkCard{
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.65);
+      border-radius: 20px;
+      padding: 14px;
+      box-shadow: var(--shadow2);
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      min-height: var(--tap);
+      transition: transform var(--t) var(--ease);
+      will-change: transform;
+    }
+    @media (prefers-color-scheme: dark){
+      .linkCard{ background: rgba(18,18,22,.65); }
+    }
+    .linkCard:hover{ transform: translate3d(0,-2px,0); }
+    .linkLeft{display:flex; align-items:center; gap:12px; min-width:0}
+    .ico{
+      width:44px;height:44px;border-radius:16px;
+      display:grid;place-items:center;
+      border:1px solid rgba(212,175,55,.35);
+      background: rgba(212,175,55,.14);
+      font-size: 18px;
+      flex: 0 0 44px;
+    }
+    .linkText{min-width:0}
+    .linkText .t{font-weight: 980; font-size: var(--sm); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+    .linkText .s{color:var(--muted); font-size: var(--xs); font-weight: 800; margin-top: 2px}
+    .chev{opacity:.6; font-weight: 980}
+
+    /* FAQ (accordion) */
+    .faq{display:grid; gap:10px; margin-top: 12px}
+    details{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.65);
+      border-radius: 20px;
+      box-shadow: var(--shadow2);
+      overflow:hidden;
+    }
+    @media (prefers-color-scheme: dark){
+      details{ background: rgba(18,18,22,.65); }
+    }
+    summary{
+      list-style:none;
+      cursor:pointer;
+      padding: 14px;
+      min-height: var(--tap);
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      font-weight: 980;
+      -webkit-tap-highlight-color: transparent;
+    }
+    summary::-webkit-details-marker{display:none}
+    .faqBody{
+      padding: 0 14px 14px;
+      color: var(--muted);
+      font-size: var(--sm);
+      font-weight: 750;
+      line-height:1.75;
+    }
+
+    /* Sticky mobile CTA bar */
+    .ctaBar{
+      position: fixed;
+      left: 12px; right: 12px;
+      bottom: 12px;
+      z-index: 60;
+      display:flex; gap:10px;
+      padding: 10px;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.68);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+    }
+    @media (prefers-color-scheme: dark){
+      .ctaBar{ background: rgba(18,18,22,.68); }
+    }
+    @media (min-width: 900px){
+      .ctaBar{display:none}
+    }
+    .ctaBar .btn{flex:1}
+
+    /* Bottom sheet */
+    .sheetBackdrop{
+      position:fixed; inset:0;
+      background: rgba(0,0,0,.45);
+      opacity:0; pointer-events:none;
+      transition: opacity 240ms var(--ease);
+      z-index: 80;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+    .sheet{
+      position:fixed; left:0; right:0; bottom:0;
+      z-index: 90;
+      transform: translate3d(0, 110%, 0);
+      transition: transform 300ms var(--ease);
+      padding: 12px 12px calc(14px + env(safe-area-inset-bottom));
+    }
+    .sheetCard{
+      border:1px solid var(--line);
+      border-radius: 24px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .handle{width:58px;height:6px;border-radius:999px;background: rgba(127,127,127,.35); margin: 10px auto}
+    .sheetHead{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      padding: 12px 14px;
+      border-bottom:1px solid var(--line);
+    }
+    .sheetBody{padding: 12px; display:grid; gap:10px; max-height: 60vh; overflow:auto}
+    .sheetLink{
+      min-height: var(--tap);
+      border-radius: 18px;
+      border:1px solid var(--line);
+      background: var(--glass);
+      padding: 12px 14px;
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      box-shadow: var(--shadow2);
+    }
+
+    body.sheetOpen{overflow:hidden}
+    body.sheetOpen .sheetBackdrop{opacity:1; pointer-events:auto}
+    body.sheetOpen .sheet{transform: translate3d(0,0,0)}
+
+    /* reveal */
+    .reveal{opacity:0; transform: translate3d(0,14px,0); transition: opacity 600ms var(--ease), transform 600ms var(--ease)}
+    .reveal.on{opacity:1; transform: translate3d(0,0,0)}
+
+    /* reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      *{animation:none !important; transition:none !important; scroll-behavior:auto !important;}
+      .reveal{opacity:1 !important; transform:none !important}
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" aria-label="التنقل">
+    <div class="wrap navIn">
+      <a class="brand" href="#top" aria-label="الرجوع للأعلى">
+        <span class="mark" aria-hidden="true">G</span>
+        <span class="btxt">
+          <b>فيزا أمريكا (B-2) — كأس العالم</b>
+          <span>دليل عملي + روابط رسمية فقط</span>
+        </span>
+      </a>
+
+      <div class="navActions">
+        <a class="btn" href="#steps">الخطوات</a>
+        <a class="btn btnGold" href="#official">روابط رسمية</a>
+        <button class="btn btnIcon" id="menuBtn" aria-controls="sheet" aria-expanded="false" aria-label="فتح المنيو">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" id="top">
+    <div class="wrap grid heroGrid">
+      <section class="card reveal">
+        <span class="chip"><span class="dot" aria-hidden="true"></span> الهدف: حضور ماتش + سياحة (B-2)</span>
+        <h1 class="h1">كيفاش تجهّز ملف فيزا أمريكا باش تحضر ماتش كأس العالم؟</h1>
+        <p class="p">
+          هاد الصفحة كتعاونك تبني ملف <b>منظم ومقنع</b>: خطوات واضحة، Checklist قابلة للنسخ،
+          وأجوبة جاهزة للمقابلة — ومعها روابط رسمية فقط.
+        </p>
+
+        <div class="kpi" role="list" aria-label="ملخص">
+          <div class="mini" role="listitem"><b>Story واضحة</b><span>سبب السفر + مدة + تمويل</span></div>
+          <div class="mini" role="listitem"><b>Ties للمغرب</b><span>شغل/دراسة/عائلة/التزامات</span></div>
+          <div class="mini" role="listitem"><b>بدون تناقض</b><span>DS-160 = نفس القصة</span></div>
+        </div>
+
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+          <a class="btn btnGold" href="#checklist">نسخ Checklist</a>
+          <a class="btn" href="#story">شنو تقول</a>
+          <a class="btn" href="#faq">FAQ</a>
+        </div>
+
+        <div class="callouts">
+          <div class="callout">
+            ⚠️ <b>قاعدة ذهبية:</b> الهدف ديالك هو تبيّن <b>سائح</b> بمدة قصيرة وتمويل واضح و<b>نية رجوع قوية</b>.
+            أي تناقض فالمعلومات كينقص الحظوظ.
+          </div>
+        </div>
+      </section>
+
+      <aside class="card reveal">
+        <h2 class="h2">Timeline سريع</h2>
+        <div class="list">
+          <div class="step"><div class="num">1</div><div class="txt"><b>DS-160</b><p>عمّر الفورم الرسمي وخرّج Confirmation.</p></div></div>
+          <div class="step"><div class="num">2</div><div class="txt"><b>MRV + موعد</b><p>دفع الرسوم ثم حجز Interview عبر المنصة الرسمية.</p></div></div>
+          <div class="step"><div class="num">3</div><div class="txt"><b>الملف + مقابلة</b><p>وثائق داعمة + قصة قصيرة وواضحة.</p></div></div>
+        </div>
+        <div class="callouts">
+          <div class="callout">
+            💡 <b>نصيحة:</b> قبل ما تكمّل DS-160، كتب فـ نوت: (المدة) + (المدن) + (السكن) + (الميزانية) باش يبقى كلشي متناسق.
+          </div>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="section">
+    <div class="wrap cols">
+
+      <!-- LEFT -->
+      <section class="card reveal" id="steps">
+        <div class="head">
+          <div>
+            <h2 class="h2">الخطوات بالتفصيل (B-2)</h2>
+            <p class="p">خدها خطوة بخطوة، وخلي كلشي متناسق فـ DS-160 والمقابلة.</p>
+          </div>
+          <span class="chip">Mobile-First</span>
+        </div>
+
+        <div class="list">
+          <div class="step">
+            <div class="num">1</div>
+            <div class="txt">
+              <b>اختار النوع الصحيح</b>
+              <p>
+                غالباً حضور ماتش + سياحة = <b>Visitor Visa (B-2)</b>.
+                ما تكتبش هدف غير واضح (بحال “غادي غير نشوف”).
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="num">2</div>
+            <div class="txt">
+              <b>عمّر DS-160 (Online)</b>
+              <p>
+                خليك دقيق: العمل/الدراسة، العنوان، تاريخ السفر التقريبي، والناس اللي غادي معاك.
+                من بعد طبع <b>Confirmation Page</b>.
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="num">3</div>
+            <div class="txt">
+              <b>MRV + حجز الموعد</b>
+              <p>
+                دير الحساب فـ USTravelDocs، خلّص الرسوم واتبع خطوات الموعد.
+                متّبعش مواقع “وسطاء” كيبيعو الوهم.
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="num">4</div>
+            <div class="txt">
+              <b>حضّر “قصة” قصيرة (30 ثانية)</b>
+              <p>
+                جوابك يكون: <b>شنو الهدف</b> + <b>شحال غتبقى</b> + <b>شكون غيموّل</b> + <b>علاش غادي ترجع</b>.
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="num">5</div>
+            <div class="txt">
+              <b>حضّر وثائق داعمة (حسب حالتك)</b>
+              <p>
+                ماشي شرط يعاينو كلشي، ولكن وجودها كيقوّي الملف: إثبات عمل/دراسة، كشف حساب، وثائق عائلية، التزامات…
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="callouts" id="checklist">
+          <div class="callout" id="checkText">
+            ✅ <b>Checklist:</b>
+            Passport صالح • DS-160 Confirmation • موعد Interview • صورة حسب المطلوب •
+            إثبات عمل/دراسة • كشف حساب/تمويل • خطة سفر بسيطة (مدن/تواريخ) •
+            إثبات ties للمغرب (عائلة/عقار/التزامات).
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <button class="btn btnGold" id="copyBtn">نسخ Checklist</button>
+            <button class="btn" id="printBtn">طباعة PDF</button>
+          </div>
+
+          <div class="callout">
+            ⭐ <b>كيفاش كتقوّي ties للمغرب؟</b>
+            ورقة عمل/عقد/Attestation • شهادة مدرسية/جامعية • التزامات عائلية • وثائق ملكية/كراء •
+            خطة رجوع واضحة بتاريخ.
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT -->
+      <aside class="card reveal" id="story">
+        <h2 class="h2">شنو تقول فالمقابلة؟ (Script جاهز)</h2>
+        <p class="p" style="margin-top:8px">
+          خليك مختصر وواضح. مثال:
+        </p>
+
+        <div class="list">
+          <div class="step">
+            <div class="num">✓</div>
+            <div class="txt">
+              <b>الهدف</b>
+              <p>“غادي لأمريكا باش نحضر ماتش/ماتشات كأس العالم + سياحة فـ (مدينة/مدن) لمدة قصيرة.”</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="num">✓</div>
+            <div class="txt">
+              <b>المدة</b>
+              <p>“غنبقى (10–14 يوم) وغنرجع فـ (تاريخ).”</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="num">✓</div>
+            <div class="txt">
+              <b>التمويل</b>
+              <p>“غنمّول الرحلة من دخلي/مدخراتي، وعندي دليل.” (أو المموّل + علاش).</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="num">✓</div>
+            <div class="txt">
+              <b>الرجوع</b>
+              <p>“عندي شغل/دراسة/التزامات فالمغرب وغادي نرجع مباشرة.”</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="callouts">
+          <div class="callout">
+            🧠 <b>الذكاء هنا:</b> ما تزيدش تفاصيل زايدة إلا تسولت.
+            جاوب قد السؤال وبنفس المعطيات اللي فـ DS-160.
+          </div>
+        </div>
+
+        <h3 class="h3" style="margin-top:14px">Budget Planner (اختياري)</h3>
+        <p class="p" style="margin-top:6px">
+          باش تبقى القصة ديالك “واقعية”، حسب ميزانية تقريبية (بدون مبالغة).
+        </p>
+
+        <div class="planner">
+          <div class="row2">
+            <div class="field">
+              <div class="label">عدد الأيام</div>
+              <input class="input" id="days" type="number" min="1" value="12" inputmode="numeric" />
+            </div>
+            <div class="field">
+              <div class="label">مصروف يومي (تقريبي)</div>
+              <input class="input" id="daily" type="number" min="0" value="120" inputmode="numeric" />
+            </div>
+          </div>
+          <div class="row2">
+            <div class="field">
+              <div class="label">طيران (تقريبي)</div>
+              <input class="input" id="flight" type="number" min="0" value="900" inputmode="numeric" />
+            </div>
+            <div class="field">
+              <div class="label">سكن (تقريبي)</div>
+              <input class="input" id="hotel" type="number" min="0" value="1200" inputmode="numeric" />
+            </div>
+          </div>
+
+          <div class="calcBox" aria-live="polite">
+            <b>المجموع التقريبي</b>
+            <span id="total">$0</span>
+          </div>
+          <div class="callout">
+            ✍️ ملاحظة: هاد الأرقام غير تقريبية باش تعاونك فـ التنظيم. خليك واقعي حسب دخلك.
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- OFFICIAL -->
+  <section class="section" id="official">
+    <div class="wrap">
+      <div class="card reveal">
+        <div class="head">
+          <div>
+            <h2 class="h2">روابط رسمية فقط (Official)</h2>
+            <p class="p">هادو المواقع اللي خاصك تعتمد عليهم باش تتجنب النصب.</p>
+          </div>
+          <span class="chip">Official Only</span>
+        </div>
+
+        <div class="links">
+          <a class="linkCard" target="_blank" rel="noopener" href="https://travel.state.gov/content/travel/en/us-visas/tourism-visit/visitor.html/visa">
+            <div class="linkLeft">
+              <div class="ico">🇺🇸</div>
+              <div class="linkText">
+                <div class="t">Visitor Visa (B-1/B-2) — travel.state.gov</div>
+                <div class="s">المتطلبات العامة + الإرشادات</div>
+              </div>
+            </div>
+            <span class="chev">↗</span>
+          </a>
+
+          <a class="linkCard" target="_blank" rel="noopener" href="https://ceac.state.gov/genniv/">
+            <div class="linkLeft">
+              <div class="ico">🧾</div>
+              <div class="linkText">
+                <div class="t">DS-160 (CEAC) — ceac.state.gov</div>
+                <div class="s">الفورم الرسمي ديال Nonimmigrant Visa</div>
+              </div>
+            </div>
+            <span class="chev">↗</span>
+          </a>
+
+          <a class="linkCard" target="_blank" rel="noopener" href="https://www.ustraveldocs.com/">
+            <div class="linkLeft">
+              <div class="ico">📅</div>
+              <div class="linkText">
+                <div class="t">USTravelDocs — الحجز والرسوم</div>
+                <div class="s">اختار Morocco باش تلقى الخطوات الصحيحة</div>
+              </div>
+            </div>
+            <span class="chev">↗</span>
+          </a>
+
+          <a class="linkCard" target="_blank" rel="noopener" href="https://ma.usembassy.gov/visas/">
+            <div class="linkLeft">
+              <div class="ico">🏛️</div>
+              <div class="linkText">
+                <div class="t">U.S. Embassy Morocco — Visas</div>
+                <div class="s">معلومات محلية + توجيه رسمي</div>
+              </div>
+            </div>
+            <span class="chev">↗</span>
+          </a>
+
+          <a class="linkCard" target="_blank" rel="noopener" href="https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/fees/fees-visa-services.html">
+            <div class="linkLeft">
+              <div class="ico">💳</div>
+              <div class="linkText">
+                <div class="t">Visa Fees — رسوم الفيزا الرسمية</div>
+                <div class="s">تأكد من آخر مبلغ حسب النوع</div>
+              </div>
+            </div>
+            <span class="chev">↗</span>
+          </a>
+
+          <a class="linkCard" target="_blank" rel="noopener" href="https://ceac.state.gov/ceacstattracker/status.aspx">
+            <div class="linkLeft">
+              <div class="ico">🔎</div>
+              <div class="linkText">
+                <div class="t">CEAC Status — تتبع حالة الملف</div>
+                <div class="s">شوف فين وصل طلبك</div>
+              </div>
+            </div>
+            <span class="chev">↗</span>
+          </a>
+        </div>
+
+        <div class="callouts">
+          <div class="callout">
+            🚫 <b>حذار:</b> أي موقع كيقوليك “فيزا مضمونة” / “موعد سحري” غالباً نصب.
+            استعمل الروابط الرسمية أعلاه فقط.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="wrap">
+      <div class="card reveal">
+        <div class="head">
+          <div>
+            <h2 class="h2">FAQ — أسئلة كتجي بزاف</h2>
+            <p class="p">أجوبة قصيرة وواضحة (باش تبقى منظم).</p>
+          </div>
+          <span class="chip">تفاصيل</span>
+        </div>
+
+        <div class="faq">
+          <details>
+            <summary>شنو أهم حاجة كتقوي الملف؟ <span class="chev">‹</span></summary>
+            <div class="faqBody">
+              أهم حاجة هي <b>ties للمغرب</b> + قصة سفر واضحة ومتناسبة مع وضعك المالي. كيبان أنك غادي وترجع.
+            </div>
+          </details>
+
+          <details>
+            <summary>واش خاصني حجز تذاكر قبل المقابلة؟ <span class="chev">‹</span></summary>
+            <div class="faqBody">
+              غالباً ماشي شرط. خليك منظم بخطة سفر “تقريبية” وواقعية، وما تديرش مصاريف كبيرة بلا ما تكون متأكد.
+            </div>
+          </details>
+
+          <details>
+            <summary>شنو نقول إلا سولوني شكون غيموّل الرحلة؟ <span class="chev">‹</span></summary>
+            <div class="faqBody">
+              جاوب بصراحة: “أنا من دخلي/مدخراتي” أو “المموّل فلان (قريب) وعندي دليل”. وخليها متناسقة مع الوثائق.
+            </div>
+          </details>
+
+          <details>
+            <summary>إذا كنت طالب/بدون عمل ثابت؟ <span class="chev">‹</span></summary>
+            <div class="faqBody">
+              ركز على: شهادة مدرسية/جامعية + التزامات الدراسة + دعم مالي واضح (الوالدين مثلاً) + سبب رجوعك بعد الماتش.
+            </div>
+          </details>
+        </div>
+
+        <div class="callouts">
+          <div class="callout">
+            📌 <b>SEO Tip:</b> إلى بغيتي زيارات بزاف، زيد صفحات بحال:
+            “شرح DS-160 بالدارجة”، “أشهر أخطاء المقابلة”، “Checklist للمغاربة 2026”.
+          </div>
+        </div>
+
+        <div class="p" style="margin-top:10px">
+          © <span id="year"></span> — صفحة Static كتخدم بلا Backend.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sticky CTA (mobile) -->
+  <div class="ctaBar" role="region" aria-label="إجراءات سريعة">
+    <a class="btn btnGold" href="#official">روابط رسمية</a>
+    <button class="btn" id="ctaCopy">نسخ Checklist</button>
+    <button class="btn" id="ctaMenu">☰ منيو</button>
+  </div>
+
+  <!-- Bottom sheet -->
+  <div class="sheetBackdrop" id="backdrop" aria-hidden="true"></div>
+  <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="قائمة سريعة">
+    <div class="sheetCard">
+      <div class="handle" aria-hidden="true"></div>
+      <div class="sheetHead">
+        <div>
+          <b style="font-size:15px">منيو سريعة</b>
+          <div style="color:var(--muted); font-size:var(--xs); font-weight:800">تنقّل بسرعة</div>
+        </div>
+        <button class="btn btnIcon" id="closeBtn" aria-label="إغلاق">✕</button>
+      </div>
+      <div class="sheetBody">
+        <a class="sheetLink" href="#steps"><span>الخطوات</span><span class="chev">‹</span></a>
+        <a class="sheetLink" href="#checklist"><span>Checklist</span><span class="chev">‹</span></a>
+        <a class="sheetLink" href="#story"><span>شنو تقول</span><span class="chev">‹</span></a>
+        <a class="sheetLink" href="#official"><span>روابط رسمية</span><span class="chev">‹</span></a>
+        <a class="sheetLink" href="#faq"><span>FAQ</span><span class="chev">‹</span></a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Bottom sheet
+    const menuBtn = document.getElementById("menuBtn");
+    const closeBtn = document.getElementById("closeBtn");
+    const backdrop = document.getElementById("backdrop");
+    const ctaMenu = document.getElementById("ctaMenu");
+    let lastFocus = null;
+
+    function openSheet(){
+      lastFocus = document.activeElement;
+      document.body.classList.add("sheetOpen");
+      menuBtn?.setAttribute("aria-expanded","true");
+      setTimeout(() => document.querySelector(".sheetBody a")?.focus(), 60);
+    }
+    function closeSheet(){
+      document.body.classList.remove("sheetOpen");
+      menuBtn?.setAttribute("aria-expanded","false");
+      lastFocus?.focus?.();
+    }
+    menuBtn.addEventListener("click", openSheet);
+    closeBtn.addEventListener("click", closeSheet);
+    backdrop.addEventListener("click", closeSheet);
+    ctaMenu.addEventListener("click", openSheet);
+
+    document.addEventListener("keydown", (e)=>{
+      if(e.key === "Escape" && document.body.classList.contains("sheetOpen")) closeSheet();
+    });
+
+    // Smooth scroll + close sheet
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener("click", (e)=>{
+        const href = a.getAttribute("href");
+        if(!href || href === "#") return;
+        const target = document.querySelector(href);
+        if(target){
+          e.preventDefault();
+          target.scrollIntoView({behavior:"smooth", block:"start"});
+          if(document.body.classList.contains("sheetOpen")) closeSheet();
+        }
+      });
+    });
+
+    // Copy checklist
+    const copyBtn = document.getElementById("copyBtn");
+    const ctaCopy = document.getElementById("ctaCopy");
+    const checkText = document.getElementById("checkText");
+
+    async function copyChecklist(btn){
+      try{
+        await navigator.clipboard.writeText(checkText.textContent.replace(/\s+/g," ").trim());
+        const old = btn.textContent;
+        btn.textContent = "✅ تـنسخ!";
+        setTimeout(()=>btn.textContent = old, 1200);
+      }catch{
+        const old = btn.textContent;
+        btn.textContent = "ماقدرتش ننسخ";
+        setTimeout(()=>btn.textContent = old, 1200);
+      }
+    }
+    copyBtn.addEventListener("click", ()=>copyChecklist(copyBtn));
+    ctaCopy.addEventListener("click", ()=>copyChecklist(ctaCopy));
+
+    // Print
+    document.getElementById("printBtn").addEventListener("click", ()=>window.print());
+
+    // Budget planner
+    const days = document.getElementById("days");
+    const daily = document.getElementById("daily");
+    const flight = document.getElementById("flight");
+    const hotel = document.getElementById("hotel");
+    const total = document.getElementById("total");
+
+    function n(v){ v = parseFloat(v); return Number.isFinite(v) ? v : 0; }
+    function calc(){
+      const t = (n(days.value) * n(daily.value)) + n(flight.value) + n(hotel.value);
+      total.textContent = "$" + Math.round(t).toLocaleString();
+    }
+    [days,daily,flight,hotel].forEach(el=>el.addEventListener("input", calc));
+    calc();
+
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting) e.target.classList.add("on");
+      });
+    }, {threshold:0.12, rootMargin:"0px 0px -60px 0px"});
+    document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+  </script>
+</body>
+</html>

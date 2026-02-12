@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+  <meta name="color-scheme" content="light dark"/>
+  <title>GoldStore — iPhone 11 → 17 | شراء سريع</title>
+  <meta name="description" content="متجر iPhone فقط (11 → 17) بستايل Apple: شبكة مضغوطة، أسعار بين 20€ و 100€ كحد أقصى، شراء سريع مع تأكيد، وصفحة نجاح أنيقة وشفافة."/>
+  <style>
+    :root{
+      --bg:#fff; --ink:#0b0b0e; --muted:#6b7280; --line:rgba(10,10,14,.10);
+      --card:#ffffffcc; --glass:#ffffffb8; --brand:#111;
+      --ok:#16a34a; --ok-bg:rgba(22,163,74,.10); --ok-br:rgba(22,163,74,.25);
+      --tap:44px; --r:14px; --r-lg:22px; --max:1180px; --gap:10px;
+      --h1:clamp(22px,5.6vw,42px); --h2:clamp(18px,3.6vw,26px);
+      --p:clamp(13px,2vw,16px); --sm:clamp(12px,1.6vw,13px);
+      --shadow:0 16px 48px rgba(0,0,0,.10); --shadow-sm:0 6px 18px rgba(0,0,0,.08);
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#0b0b0e; --ink:#f8fafc; --muted:#9aa3b2; --line:rgba(255,255,255,.12);
+        --card:#101317e6; --glass:#0f1216cc; --brand:#f8fafc;
+        --ok:#22c55e; --ok-bg:rgba(34,197,94,.16); --ok-br:rgba(34,197,94,.28);
+        --shadow:0 16px 48px rgba(0,0,0,.5); --shadow-sm:0 6px 18px rgba(0,0,0,.36);
+      }
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:
+        radial-gradient(800px 480px at 10% -20%, rgba(0,0,0,.04), transparent 60%),
+        radial-gradient(700px 440px at 90% -10%, rgba(0,0,0,.03), transparent 58%),
+        linear-gradient(var(--bg), var(--bg));
+      color:var(--ink);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      -webkit-text-size-adjust:100%; text-rendering:optimizeLegibility; overflow-x:hidden;
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{width:min(var(--max), 94vw); margin-inline:auto}
+
+    /* NAV */
+    .nav{position:sticky; top:0; z-index:50; padding:10px 0; background:var(--glass); border-bottom:1px solid var(--line); backdrop-filter: blur(12px)}
+    .nav__in{display:flex; align-items:center; justify-content:space-between; gap:10px}
+    .brand{display:flex; align-items:center; gap:10px; min-height:var(--tap)}
+    .mark{width:34px;height:34px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg, rgba(0,0,0,.06), rgba(0,0,0,.02)); border:1px solid var(--line); font-weight:900; color:var(--brand)}
+    .btxt{display:flex; flex-direction:column; line-height:1.1}
+    .btxt b{font-size:14px}
+    .btxt span{font-size:var(--sm); color:var(--muted)}
+    .nav__act{display:flex; align-items:center; gap:10px}
+    .search{position:relative; min-width:200px}
+    .search input{
+      width:100%; min-height:var(--tap);
+      border-radius:999px; border:1px solid var(--line);
+      background:#fff; color:var(--ink); padding:0 40px 0 12px;
+      box-shadow:var(--shadow-sm); font-size:var(--p);
+    }
+    .search .ico{position:absolute; right:12px; top:50%; transform:translateY(-50%); opacity:.7}
+    @media (prefers-color-scheme: dark){ .search input{background:#0f1216} }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      min-height:var(--tap); padding:10px 14px; border-radius:999px;
+      border:1px solid var(--line); background:#fff; box-shadow:var(--shadow-sm);
+      font-weight:800; font-size:var(--sm);
+    }
+    .btn:active{transform:scale(.98)}
+    @media (prefers-color-scheme: dark){ .btn{background:#0f1216} }
+
+    /* HERO */
+    .hero{padding:18px 0 8px}
+    .hero__card{border:1px solid var(--line); border-radius:var(--r-lg); padding:16px; background:var(--card); box-shadow:var(--shadow)}
+    .h1{font-size:var(--h1); margin:4px 0 8px; letter-spacing:-.4px}
+    .lead{margin:0; color:var(--muted); font-size:var(--p)}
+
+    /* GRID (مضغوط للموبايل) */
+    .grid{display:grid; gap:10px; padding:12px 0 20px}
+    .grid{ grid-template-columns: repeat(2, minmax(0,1fr)) }         /* موبايل: 2 أعمدة */
+    @media (min-width:640px){ .grid{ grid-template-columns: repeat(3, minmax(0,1fr)) } } /* تاب صغير: 3 */
+    @media (min-width:1024px){ .grid{ grid-template-columns: repeat(4, minmax(0,1fr)) } }/* ديسكتوب: 4 */
+
+    .card{
+      border:1px solid var(--line); border-radius:var(--r);
+      background:var(--card); padding:10px; box-shadow:var(--shadow-sm);
+      display:flex; flex-direction:column; gap:8px; transition:transform .18s ease
+    }
+    .card:hover{ transform:translateY(-2px) }
+    .pic{
+      aspect-ratio: 1 / 1; border-radius:12px;
+      background:linear-gradient(135deg, rgba(0,0,0,.06), rgba(0,0,0,.02));
+      display:grid; place-items:center; overflow:hidden;
+    }
+    .pic img{
+      width:100%; height:100%; object-fit:contain; /* الصورة تتوسّط داخل المربّع */
+    }
+    .title{font-weight:900; letter-spacing:-.2px; font-size: clamp(12px, 3.2vw, 14px)}
+    .row{display:flex; align-items:center; justify-content:space-between; gap:8px}
+    .price{font-weight:900; font-size: clamp(12px, 3vw, 14px)}
+    .opts{display:flex; gap:6px; flex-wrap:wrap}
+    .select{border:1px solid var(--line); border-radius:999px; padding:6px 8px; background:transparent; font-size:12px}
+    .buy{margin-top:4px}
+    .empty{padding:18px; text-align:center; color:var(--muted); font-size:var(--sm)}
+
+    /* MODALS */
+    .confirm, .success{position:fixed; inset:0; z-index:90; display:none}
+    .confirm.open, .success.open{display:block}
+    .dim{position:absolute; inset:0; background:rgba(0,0,0,.38); backdrop-filter:blur(2px)}
+    .sheet{
+      position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+      width:min(92vw,520px); background:var(--bg); border:1px solid var(--line);
+      border-radius:22px; box-shadow:var(--shadow); overflow:hidden
+    }
+    .sheetHead{padding:12px 14px; border-bottom:1px solid var(--line); font-weight:900; font-size:var(--p)}
+    .sheetBody{padding:14px; display:grid; gap:8px; font-size:var(--p)}
+    .sheetFoot{padding:12px 14px; border-top:1px solid var(--line); display:flex; gap:10px; flex-wrap:wrap}
+    .btn.ok{background:linear-gradient(135deg, #16a34a, #22c55e); color:#fff; border-color:transparent}
+    .btn.ghost{background:#fff}
+    @media (prefers-color-scheme: dark){ .btn.ghost{background:#0f1216} }
+
+    /* SUCCESS (أنيق وشفّاف) */
+    .success__in{max-width:640px; margin:min(10vh,60px) auto; padding:16px; width:min(92vw,640px)}
+    .success__card{
+      border:1px solid var(--ok-br);
+      background:linear-gradient(180deg, rgba(22,163,74,.10), rgba(22,163,74,.06));
+      border-radius:22px; box-shadow:var(--shadow); padding:18px; position:relative; overflow:hidden
+    }
+    .success__card::after{
+      content:""; position:absolute; inset:-40%;
+      background:
+        radial-gradient(300px 180px at 80% -10%, rgba(34,197,94,.18), transparent 60%),
+        radial-gradient(260px 160px at 10% 110%, rgba(34,197,94,.12), transparent 60%);
+      filter:blur(8px); opacity:.8; pointer-events:none; animation: float 8s ease-in-out infinite;
+    }
+    @keyframes float{ 0%,100%{transform:translate(0,0)} 50%{transform:translate(8px,-6px)} }
+    .ok-badge{
+      width:56px;height:56px;border-radius:18px; display:grid; place-items:center;
+      background:#fff; color:var(--ok); border:2px solid var(--ok-br); font-size:24px; margin-bottom:8px
+    }
+    .success h2{ font-size: clamp(20px, 4.2vw, 26px); margin: 4px 0 4px; color: var(--ok) }
+    .success p{ color: var(--muted); margin:0; font-size:var(--p) }
+    .summary{ margin-top:10px; border-radius:14px; border:1px solid var(--line); background:rgba(255,255,255,.65); padding:10px; font-size:var(--p); backdrop-filter: blur(8px) }
+    .summary .row{ display:flex; justify-content:space-between; gap:8px; margin:4px 0 }
+    .success .btns{ display:flex; gap:8px; flex-wrap:wrap; margin-top:12px }
+
+    /* FOOTER */
+    .footer{padding:16px 0 22px; border-top:1px solid var(--line); background:linear-gradient(var(--bg), var(--bg))}
+    .muted{color:var(--muted)}
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="wrap nav__in">
+      <a class="brand" href="#">
+        <span class="mark">G</span>
+        <span class="btxt"><b>GoldStore</b><span>iPhone 11 → 17 • شراء سريع</span></span>
+      </a>
+      <div class="nav__act">
+        <div class="search" role="search">
+          <input id="q" type="search" placeholder="إبحث عن iPhone..." aria-label="بحث"/>
+          <span class="ico">🔎</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="wrap hero__card">
+      <div class="row" style="align-items:flex-end; gap:10px">
+        <div>
+          <div class="badge" style="display:inline-flex;align-items:center;gap:8px; padding:6px 10px; border-radius:999px; border:1px solid var(--line); background:#fff">📱 iPhone Only</div>
+          <h1 class="h1"> iPhone  </h1>
+          <p class="lead">شبكة مضغوطة باش تشوف كلشي بسرعة. اختر السعة واللون، والأسعار دائماً بين <b>20€</b> و <b>100€</b> فقط. اضغط “شراء الآن” → تأكيد → نجاح.</p>
+        </div>
+        <div class="row" style="gap:8px">
+          <select id="sort" class="select" aria-label="ترتيب">
+            <option value="pop">الأكثر شيوعاً</option>
+            <option value="price-asc">السعر: من الأرخص</option>
+            <option value="price-desc">السعر: من الأغلى</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- PRODUCTS -->
+  <main class="wrap">
+    <section id="grid" class="grid" aria-live="polite"></section>
+    <div id="empty" class="empty" hidden>ما لقيْناش نتائج مطابقة للبحث.</div>
+  </main>
+
+  <!-- CONFIRM MODAL -->
+  <section id="confirm" class="confirm" aria-hidden="true" role="dialog" aria-label="تأكيد الشراء">
+    <div class="dim"></div>
+    <div class="sheet" role="document">
+      <div class="sheetHead">تأكيد الطلب</div>
+      <div class="sheetBody">
+        <div id="confirmText" style="font-weight:900"></div>
+        <div id="confirmPrice" class="muted"></div>
+      </div>
+      <div class="sheetFoot">
+        <button class="btn ok" id="confirmYes">نعم، اشتري الآن</button>
+        <button class="btn ghost" id="confirmNo">رجوع</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUCCESS PAGE -->
+  <section id="successPage" class="success" aria-hidden="true">
+    <div class="success__in">
+      <div class="success__card">
+        <div class="ok-badge">✔</div>
+        <h2>تمّ تأكيد طلبك بنجاح 🎉</h2>
+        <p>شكراً على ثقتك! سنتواصل معك قريباً لتأكيد التفاصيل وموعد التسليم.</p>
+
+        <div class="summary" id="orderSummary"></div>
+
+        <div class="btns">
+          <a class="btn" id="backToStore">⬅️ الرجوع إلى المتجر</a>
+          <a class="btn" href="mailto:contact@example.com?subject=استفسار%20عن%20طلب">✉️ تواصل معنا</a>
+          <a class="btn" href="tel:+212600000000">📞 اتصال</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap" style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap">
+      <small class="muted">© <span id="y"></span> GoldStore — iPhone Only</small>
+      <small class="muted">Mobile-first • شبكة 2/3/4 أعمدة</small>
+    </div>
+  </footer>
+
+  <script>
+    /* ------------------ إعدادات العملة ------------------ */
+    const EUR = (v)=> new Intl.NumberFormat('fr-FR', {
+      style:'currency', currency:'EUR', minimumFractionDigits:0, maximumFractionDigits:0
+    }).format(v);
+
+    /* ------------------ قواعد السعر 20€ ↔ 100€ ------------------ */
+    const MIN_EUR = 20, MAX_EUR = 100;
+    const capPrice = (v)=> Math.min(MAX_EUR, Math.max(MIN_EUR, v));
+
+    /* ------------------ خيارات السعة واللون ------------------ */
+    // زيادات بسيطة باش مانفوتوش 100€
+    const STORAGES = [
+      {label:'128GB', add:0},
+      {label:'256GB', add:10},
+      {label:'512GB', add:20},
+    ];
+    const COLORS = ['Noir','Argent','Bleu','Naturel'];
+
+    /* ------------------ منتجات iPhone فقط ------------------ */
+    // ملاحظة مهمّة: بدّل مسارات الصور "img" بصورك (PNG/JPG) — يُفضّل مربّعة 1000×1000
+    const PRODUCTS = [
+  { id:'ip11', name:'iPhone 11', base:60,  pop:6,  img:'../assets/img/IPHONE/iphone11.jpg' },
+  { id:'ip12', name:'iPhone 12', base:65,  pop:7,  img:'../assets/img/IPHONE/iphone12.jpg' },
+  { id:'ip13', name:'iPhone 13', base:70,  pop:9,  img:'../assets/img/IPHONE/iphone13.jpg' },
+  { id:'ip14', name:'iPhone 14', base:75,  pop:8,  img:'../assets/img/IPHONE/iphone14.jpg' },
+  { id:'ip15', name:'iPhone 15', base:80,  pop:10, img:'../assets/img/IPHONE/iphone15.jpg' },
+  { id:'ip16', name:'iPhone 16', base:90,  pop:7,  img:'../assets/img/IPHONE/iphone16.jpg' },
+  { id:'ip17', name:'iPhone 17', base:100, pop:5,  img:'../assets/img/IPHONE/iphone17.jpg' }
+];
+
+    /* ------------------ الحالة ------------------ */
+    let query='', sort='pop', selected=null;
+
+    /* ------------------ عناصر DOM ------------------ */
+    const grid     = document.getElementById('grid');
+    const empty    = document.getElementById('empty');
+    const q        = document.getElementById('q');
+    const sortSel  = document.getElementById('sort');
+
+    /* ------------------ بناء بطاقة منتج + صورة ------------------ */
+    function makeCard(p){
+      const card = document.createElement('article');
+      card.className='card';
+      card.dataset.id = p.id;
+      card.innerHTML = `
+        <div class="pic" aria-label="صورة المنتج">
+          <!-- ✳️ هنا كندخلو الصورة: بدّل src بمسار الصورة ديالك -->
+          <img src="${p.img}" alt="${p.name}" loading="lazy"/>
+        </div>
+        <div class="title">${p.name}</div>
+        <div class="opts">
+          <select class="select sel-storage" aria-label="السعة">
+            ${STORAGES.map(s=>`<option value="${s.add}">${s.label}</option>`).join('')}
+          </select>
+          <select class="select sel-color" aria-label="اللون">
+            ${COLORS.map(c=>`<option value="${c}">${c}</option>`).join('')}
+          </select>
+        </div>
+        <div class="row buy">
+          <span class="price"></span>
+          <button class="btn" data-buy="${p.id}">شراء الآن</button>
+        </div>
+      `;
+      const storageSel = card.querySelector('.sel-storage');
+      const priceEl    = card.querySelector('.price');
+
+      const updatePrice = ()=> {
+        const add   = +storageSel.value;
+        const raw   = p.base + add;
+        const total = capPrice(raw);               // 👈 ضمان 20 ↔ 100
+        priceEl.textContent = EUR(total);
+        priceEl.dataset.total = total;            // نخزّن الثمن النهائي للاستعمال عند الشراء
+      };
+      storageSel.addEventListener('change', updatePrice);
+      updatePrice();
+
+      return card;
+    }
+
+    /* ------------------ عرض الشبكة ------------------ */
+    function render(){
+      const qx = query.trim().toLowerCase();
+      let list = PRODUCTS.filter(p => p.name.toLowerCase().includes(qx));
+      if (sort==='price-asc') list.sort((a,b)=> a.base - b.base);
+      else if (sort==='price-desc') list.sort((a,b)=> b.base - a.base);
+      else list.sort((a,b)=> b.pop - a.pop);
+
+      grid.innerHTML = '';
+      if (!list.length){ empty.hidden=false; return; } else empty.hidden=true;
+      list.forEach(p=> grid.appendChild(makeCard(p)));
+    }
+
+    /* ------------------ تأكيد ------------------ */
+    const confirmEl   = document.getElementById('confirm');
+    const confirmText = document.getElementById('confirmText');
+    const confirmPrice= document.getElementById('confirmPrice');
+    const confirmYes  = document.getElementById('confirmYes');
+    const confirmNo   = document.getElementById('confirmNo');
+
+    function openConfirm(payload){
+      selected = payload;
+      confirmText.textContent  = `واش متأكّد بغيتي تشري: «${payload.name} — ${payload.storage}, ${payload.color}» ؟`;
+      confirmPrice.textContent = `المجموع: ${EUR(payload.total)}`;
+      confirmEl.classList.add('open');
+      confirmEl.setAttribute('aria-hidden','false');
+    }
+    function closeConfirm(){
+      confirmEl.classList.remove('open');
+      confirmEl.setAttribute('aria-hidden','true');
+    }
+
+    /* ------------------ نجاح ------------------ */
+    const successEl   = document.getElementById('successPage');
+    const orderSummary= document.getElementById('orderSummary');
+    const backToStore = document.getElementById('backToStore');
+
+    function openSuccess(payload){
+      orderSummary.innerHTML = `
+        <div class="row"><b>رقم الطلب:</b><span>#${genRef()}</span></div>
+        <div class="row"><b>المنتج:</b><span>${payload.name}</span></div>
+        <div class="row"><b>السعة:</b><span>${payload.storage}</span></div>
+        <div class="row"><b>اللون:</b><span>${payload.color}</span></div>
+        <div class="row" style="border-top:1px solid var(--line); padding-top:8px"><b>المجموع:</b><b>${EUR(payload.total)}</b></div>
+      `;
+      successEl.classList.add('open');
+      successEl.setAttribute('aria-hidden','false');
+    }
+    function closeSuccess(){
+      successEl.classList.remove('open');
+      successEl.setAttribute('aria-hidden','true');
+    }
+    function genRef(){
+      const d = new Date(); const pad = n => String(n).padStart(2,'0');
+      return `GS${String(d.getFullYear()).slice(2)}${pad(d.getMonth()+1)}${pad(d.getDate())}-${Math.floor(1000+Math.random()*9000)}`;
+    }
+
+    /* ------------------ أحداث ------------------ */
+    document.addEventListener('click', (e)=>{
+      const btn = e.target.closest('[data-buy]');
+      if (btn){
+        const card      = btn.closest('.card');
+        const id        = btn.getAttribute('data-buy');
+        const product   = PRODUCTS.find(x=>x.id===id);
+        if (!card || !product) return;
+
+        const storageAdd = +card.querySelector('.sel-storage').value;
+        const storageLbl = card.querySelector('.sel-storage').selectedOptions[0].textContent;
+        const colorLbl   = card.querySelector('.sel-color').value;
+
+        // المجموع النهائي ضمن 20↔100
+        const total = capPrice(product.base + storageAdd);
+        openConfirm({ id:product.id, name:product.name, storage:storageLbl, color:colorLbl, total });
+        return;
+      }
+      if (e.target.classList.contains('dim') && confirmEl.classList.contains('open')) closeConfirm();
+      if (e.target.classList.contains('dim') && successEl.classList.contains('open')) closeSuccess();
+    });
+
+    confirmYes.addEventListener('click', ()=>{
+      if (!selected) return;
+      const payload = selected; selected = null;
+      closeConfirm();
+      openSuccess(payload);
+    });
+    confirmNo.addEventListener('click', closeConfirm);
+
+    backToStore.addEventListener('click', ()=>{
+      closeSuccess();
+      window.scrollTo({ top:0, behavior:'smooth' });
+    });
+
+    q.addEventListener('input', ()=>{ query = q.value; render(); });
+    sortSel.addEventListener('change', ()=>{ sort = sortSel.value; render(); });
+
+    // Init
+    document.getElementById('y').textContent = new Date().getFullYear();
+    render();
+
+    // ESC
+    document.addEventListener('keydown', (e)=>{
+      if (e.key==='Escape'){
+        if (confirmEl.classList.contains('open')) closeConfirm();
+        if (successEl.classList.contains('open')) closeSuccess();
+      }
+    });
+  </script>
+</body>
+</html>
